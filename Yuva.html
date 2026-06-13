@@ -1,0 +1,3348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUVA R&D - National Youth Innovation Pipeline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy:       #1E2A5E;
+            --slate:      #1E293B;
+            --teal:       #0F766E;
+            --accent:     #2563EB;
+            --gold:       #B45309;
+            --bg:         #F1F5F9;
+            --surface:    #FFFFFF;
+            --surface-2:  #F8FAFC;
+            --border:     #E2E8F0;
+            --border-2:   #CBD5E1;
+            --text-primary:   #0F172A;
+            --text-secondary: #475569;
+            --text-muted:     #94A3B8;
+            --green:      #059669;
+            --green-bg:   #D1FAE5;
+            --amber:      #D97706;
+            --amber-bg:   #FEF3C7;
+            --blue-bg:    #EFF6FF;
+            --red:        #DC2626;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            font-size: 15px;
+            line-height: 1.6;
+            letter-spacing: -0.01em;
+        }
+
+        /* ── Header ── */
+        header {
+            background: var(--navy);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 18px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-mark {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .logo-icon svg { display: block; }
+
+        .logo-text h1 {
+            font-size: 1.45em;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+        }
+
+        .logo-text .tagline {
+            font-size: 0.78em;
+            color: #94A3B8;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            margin-top: 2px;
+        }
+
+        .header-badge {
+            background: rgba(37,99,235,0.15);
+            border: 1px solid rgba(37,99,235,0.4);
+            color: #93C5FD;
+            font-size: 0.75em;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 4px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* ── Layout ── */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            background: linear-gradient(160deg, var(--navy) 0%, #1a3a6b 55%, var(--teal) 100%);
+            padding: 80px 0 72px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0px, transparent 1px, transparent 60px, rgba(255,255,255,0.025) 61px),
+                repeating-linear-gradient(0deg,  rgba(255,255,255,0.025) 0px, transparent 1px, transparent 60px, rgba(255,255,255,0.025) 61px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            background: rgba(37,99,235,0.2);
+            border: 1px solid rgba(37,99,235,0.5);
+            color: #93C5FD;
+            font-size: 0.75em;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+        }
+
+        .hero h2 {
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #FFFFFF;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            color: #CBD5E1;
+            max-width: 680px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 13px 32px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.95em;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            transition: background 0.2s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #1D4ED8;
+            transform: translateY(-1px);
+        }
+
+        /* ── Sections ── */
+        .section-wrap {
+            padding: 64px 0;
+        }
+
+        .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: var(--slate);
+            text-align: center;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1em;
+            margin-bottom: 48px;
+        }
+
+        /* ── Pipeline Stages ── */
+        .pipeline-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .stage {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px 32px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .stage:hover {
+            border-color: var(--accent);
+            box-shadow: 0 2px 16px rgba(37,99,235,0.1);
+        }
+
+        .stage-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 16px;
+        }
+
+        .stage-number {
+            width: 36px;
+            height: 36px;
+            background: var(--navy);
+            color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85em;
+            flex-shrink: 0;
+        }
+
+        .stage-info h3 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--slate);
+            margin-bottom: 2px;
+        }
+
+        .stage-subtitle-label {
+            color: var(--text-muted);
+            font-size: 0.82em;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .stage-content {
+            margin-left: 54px;
+        }
+
+        .stage-description {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            font-size: 0.95em;
+            line-height: 1.65;
+        }
+
+        .stage-details {
+            background: var(--surface-2);
+            padding: 14px 18px;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .stage-details ul { list-style: none; padding: 0; }
+
+        .stage-details li {
+            padding: 6px 0;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .stage-details li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--green);
+            border-radius: 50%;
+            margin-top: 7px;
+            flex-shrink: 0;
+        }
+
+        .arrow-connector {
+            text-align: center;
+            color: var(--border-2);
+            margin: 4px 0 4px 0;
+            font-size: 1em;
+            display: flex;
+            justify-content: center;
+        }
+
+        .arrow-connector svg { opacity: 0.5; }
+
+        /* ── Impact Cards ── */
+        .impact-section {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 64px 0;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .impact-card {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px 24px;
+            transition: border-color 0.2s ease;
+        }
+
+        .impact-card:hover { border-color: var(--accent); }
+
+        .impact-card-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--blue-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .impact-card-icon svg { color: var(--accent); }
+
+        .impact-card h4 {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: var(--slate);
+            margin-bottom: 8px;
+        }
+
+        .impact-card p {
+            color: var(--text-secondary);
+            font-size: 0.88em;
+            line-height: 1.6;
+        }
+
+        /* ── Form Section ── */
+        .submit-section {
+            padding: 64px 0;
+        }
+
+        .form-container {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px 44px;
+            max-width: 760px;
+            margin: 0 auto;
+            box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+        }
+
+        .form-group { margin-bottom: 22px; }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--slate);
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 11px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--border-2);
+            background: var(--surface);
+            color: var(--text-primary);
+            font-size: 0.95em;
+            font-family: inherit;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+        }
+
+        .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; }
+
+        .form-group textarea { min-height: 130px; resize: vertical; }
+
+        .submit-btn {
+            width: 100%;
+            padding: 13px;
+            background: var(--navy);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            font-family: inherit;
+            letter-spacing: 0.01em;
+        }
+
+        .submit-btn:hover { background: var(--accent); }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--slate);
+            padding: 36px 0;
+            text-align: center;
+            border-top: 3px solid var(--accent);
+        }
+
+        footer p { color: #94A3B8; font-size: 0.88em; line-height: 1.7; }
+        .footer-highlight { color: #E2E8F0; font-weight: 600; }
+
+        /* ── Overlay Screens (shared base) ── */
+        .overlay-screen {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--surface-2);
+            z-index: 10000;
+            overflow-y: auto;
+        }
+
+        .overlay-header {
+            background: var(--navy);
+            border-bottom: 3px solid var(--accent);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .overlay-header h2 {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: -0.01em;
+        }
+
+        .overlay-header p {
+            color: #94A3B8;
+            font-size: 0.9em;
+            margin-top: 4px;
+        }
+
+        .overlay-body {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 32px 60px;
+        }
+
+        /* ── Cards (overlay) ── */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px 30px;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            color: var(--slate);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title .title-badge {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* ── Progress Bar ── */
+        .progress-track {
+            background: var(--border);
+            height: 6px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .progress-fill.green { background: var(--green); }
+        .progress-fill.teal  { background: var(--teal); }
+        .progress-fill.gold  { background: var(--gold); }
+
+        /* ── Processing Steps ── */
+        .process-step {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+            opacity: 0.35;
+            transition: opacity 0.4s ease;
+        }
+
+        .process-step.active { opacity: 1; }
+
+        .process-step-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .step-icon {
+            width: 36px; height: 36px;
+            background: var(--blue-bg);
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step-icon svg { color: var(--accent); }
+
+        .step-label { font-weight: 600; font-size: 0.95em; color: var(--slate); margin-bottom: 3px; }
+        .step-desc  { font-size: 0.85em; color: var(--text-secondary); }
+
+        .check-badge {
+            display: none;
+            width: 28px; height: 28px;
+            background: var(--green);
+            border-radius: 50%;
+            align-items: center; justify-content: center;
+            flex-shrink: 0;
+            margin-left: auto;
+        }
+
+        .check-badge.visible { display: flex; }
+        .check-badge svg { color: white; }
+
+        /* ── Result Boxes ── */
+        .result-success {
+            background: var(--green-bg);
+            border: 1px solid #6EE7B7;
+            border-radius: 10px;
+            padding: 28px 32px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .result-success h3 {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #065F46;
+            margin-bottom: 8px;
+        }
+
+        .result-success p { color: #047857; font-size: 0.95em; }
+
+        .result-info-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px 30px;
+            margin-bottom: 20px;
+        }
+
+        .result-info-card h3 {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ── Data rows ── */
+        .data-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-row:last-child { border-bottom: none; }
+
+        .data-row-bar {
+            padding: 14px 16px;
+            border-radius: 6px;
+            border-left: 3px solid;
+            margin-bottom: 10px;
+        }
+
+        .data-row-bar.green { background: #F0FDF4; border-color: var(--green); }
+        .data-row-bar.blue  { background: var(--blue-bg); border-color: var(--accent); }
+        .data-row-bar.gold  { background: #FFFBEB; border-color: var(--gold); }
+        .data-row-bar.navy  { background: #EEF2FF; border-color: var(--navy); }
+
+        .data-row-bar h4 { font-size: 0.9em; font-weight: 600; margin-bottom: 5px; }
+        .data-row-bar p  { font-size: 0.88em; color: var(--text-secondary); }
+        .data-row-bar.green h4 { color: #065F46; }
+        .data-row-bar.blue h4  { color: var(--accent); }
+        .data-row-bar.gold h4  { color: var(--gold); }
+        .data-row-bar.navy h4  { color: var(--navy); }
+
+        /* ── Action buttons ── */
+        .action-btn {
+            display: inline-block;
+            padding: 11px 28px;
+            background: var(--navy);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.2s ease;
+        }
+
+        .action-btn:hover { background: var(--accent); }
+
+        .action-btn.secondary {
+            background: var(--surface);
+            color: var(--slate);
+            border: 1px solid var(--border-2);
+        }
+
+        .action-btn.secondary:hover { background: var(--surface-2); }
+
+        .action-btn.success { background: var(--green); }
+        .action-btn.success:hover { background: #047857; }
+
+        .btn-row {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+
+        /* ── Metric Tile ── */
+        .metric-tile {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .metric-tile .metric-label { font-size: 0.8em; color: var(--text-muted); font-weight: 500; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .metric-tile .metric-value { font-size: 1.8em; font-weight: 700; color: var(--navy); line-height: 1; }
+        .metric-tile .metric-bar { margin-top: 10px; }
+
+        /* ── Grid helpers ── */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+
+        /* ── Path Cards ── */
+        .path-card {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 28px 24px;
+            cursor: pointer;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .path-card:hover { border-color: var(--accent); }
+        .path-card.selected { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.12); }
+
+        .path-card-icon {
+            width: 52px; height: 52px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .path-card h4 { font-size: 1.05em; font-weight: 700; color: var(--slate); margin-bottom: 6px; }
+        .path-card .path-desc { font-size: 0.88em; color: var(--text-secondary); margin-bottom: 18px; }
+
+        .path-card ul { list-style: none; padding: 0; }
+        .path-card li { font-size: 0.88em; color: var(--text-secondary); padding: 5px 0; display: flex; align-items: center; gap: 8px; }
+        .path-card li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+        /* ── Mentor/Expert cards ── */
+        .person-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 22px;
+        }
+
+        .person-avatar {
+            width: 48px; height: 48px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 14px;
+            color: white;
+            font-size: 1.1em;
+            font-weight: 700;
+        }
+
+        .person-card h4 { font-size: 0.95em; font-weight: 600; color: var(--slate); margin-bottom: 3px; }
+        .person-card .person-role { font-size: 0.82em; color: var(--accent); font-weight: 600; margin-bottom: 12px; }
+        .person-card .person-meta { font-size: 0.83em; color: var(--text-secondary); line-height: 1.7; }
+        .person-card .person-meta strong { color: var(--text-primary); }
+
+        /* ── Filing steps ── */
+        .filing-step {
+            display: flex;
+            gap: 18px;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface-2);
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+
+        .filing-step-num {
+            width: 32px; height: 32px;
+            background: var(--navy);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700;
+            font-size: 0.85em;
+            flex-shrink: 0;
+        }
+
+        .filing-step-num.green { background: var(--green); }
+        .filing-step-num.blue  { background: var(--accent); }
+        .filing-step-num.teal  { background: var(--teal); }
+        .filing-step-num.gold  { background: var(--gold); }
+
+        .filing-step h4 { font-size: 0.92em; font-weight: 600; color: var(--slate); margin-bottom: 4px; }
+        .filing-step p  { font-size: 0.83em; color: var(--text-secondary); margin-bottom: 2px; }
+        .filing-step .meta { font-size: 0.8em; color: var(--text-muted); }
+
+        /* ── Support service card ── */
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .service-icon {
+            width: 46px; height: 46px;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 14px;
+        }
+
+        .service-card h4 { font-size: 0.9em; font-weight: 600; color: var(--slate); margin-bottom: 7px; }
+        .service-card p  { font-size: 0.83em; color: var(--text-secondary); margin-bottom: 14px; line-height: 1.55; }
+
+        /* ── Novelty scores ── */
+        .score-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .score-tile {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .score-tile .score-label { font-size: 0.78em; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+        .score-tile .score-val   { font-size: 2em; font-weight: 700; color: var(--navy); }
+
+        /* ── Risk badge ── */
+        .risk-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 11px;
+            background: var(--surface-2);
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .risk-badge {
+            font-size: 0.75em;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            flex-shrink: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .risk-badge.low    { background: #D1FAE5; color: #065F46; }
+        .risk-badge.medium { background: #FEF3C7; color: #92400E; }
+        .risk-badge.high   { background: #FEE2E2; color: #991B1B; }
+
+        .risk-text { font-size: 0.88em; color: var(--text-secondary); }
+
+        /* ── Workflow diagram ── */
+        .workflow-diagram {
+            font-family: 'Courier New', monospace;
+            font-size: 0.83em;
+            color: var(--text-secondary);
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 16px;
+            line-height: 2;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        /* ── Submission display ── */
+        .submission-row {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9em;
+            display: flex;
+            gap: 10px;
+        }
+
+        .submission-row:last-child { border-bottom: none; }
+        .submission-row strong { color: var(--slate); min-width: 130px; font-weight: 600; }
+        .submission-row span   { color: var(--text-secondary); }
+
+        /* ── Roadmap ── */
+        .roadmap-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .roadmap-card h4 { font-size: 0.9em; font-weight: 600; color: var(--slate); margin-bottom: 4px; }
+        .roadmap-card .duration { font-size: 0.82em; color: var(--accent); font-weight: 600; margin-bottom: 6px; }
+        .roadmap-card p  { font-size: 0.82em; color: var(--text-muted); }
+
+        .roadmap-card-icon {
+            width: 40px; height: 40px;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 12px;
+        }
+
+        /* ── Next Steps ── */
+        .next-step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.92em;
+            color: var(--text-secondary);
+        }
+
+        .next-step-item:last-child { border-bottom: none; }
+
+        .next-step-dot {
+            width: 8px; height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+
+        /* ── Section divider label ── */
+        .section-label {
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .header-inner { padding: 14px 16px; }
+            .hero { padding: 52px 0 48px; }
+            .hero h2 { font-size: 1.9em; }
+            .container { padding: 0 16px; }
+            .overlay-body { padding: 24px 16px 48px; }
+            .form-container { padding: 28px 20px; }
+            .stage-content { margin-left: 0; margin-top: 14px; }
+            .stage-header { flex-wrap: wrap; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .header-badge { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; animation: none !important; }
+        }
+
+        /* ── Auth Buttons ── */
+        .header-auth, .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .auth-btn {
+            padding: 7px 16px;
+            border-radius: 6px;
+            font-size: 0.82em;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.25);
+            background: transparent;
+            color: #CBD5E1;
+            font-family: inherit;
+            transition: all 0.2s ease;
+            letter-spacing: 0.01em;
+        }
+        .auth-btn:hover { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.5); }
+        .auth-btn.signup-btn { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .auth-btn.signup-btn:hover { background: #1D4ED8; border-color: #1D4ED8; }
+        .auth-btn.logout-btn { background: rgba(220,38,38,0.15); border-color: rgba(220,38,38,0.4); color: #FCA5A5; }
+        .auth-btn.logout-btn:hover { background: rgba(220,38,38,0.3); }
+        .user-avatar {
+            width: 32px; height: 32px;
+            background: var(--teal);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85em;
+            flex-shrink: 0;
+        }
+        .user-name-text { color: #E2E8F0; font-size: 0.85em; font-weight: 500; }
+
+        /* ── Modal Overlay ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 9000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-box {
+            background: var(--surface);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: modalIn 0.25s ease;
+        }
+        @keyframes modalIn { from { opacity:0; transform: scale(0.95) translateY(-10px); } to { opacity:1; transform: scale(1) translateY(0); } }
+        .modal-header {
+            background: var(--navy);
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h3 { color: #fff; font-size: 1.1em; font-weight: 700; }
+        .modal-header p { color: #94A3B8; font-size: 0.82em; margin-top: 3px; }
+        .modal-close {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1em;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: background 0.2s;
+        }
+        .modal-close:hover { background: rgba(255,255,255,0.25); }
+        .modal-body { padding: 24px; max-height: 75vh; overflow-y: auto; }
+        .modal-form-group { margin-bottom: 16px; }
+        .modal-form-group label { display: block; margin-bottom: 6px; font-size: 0.88em; font-weight: 600; color: var(--slate); }
+        .modal-form-group input[type="text"],
+        .modal-form-group input[type="email"],
+        .modal-form-group input[type="password"],
+        .modal-form-group input[type="tel"],
+        .modal-form-group input[type="date"] {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-family: inherit;
+            color: var(--text-primary);
+            background: var(--surface-2);
+            transition: border-color 0.2s;
+            outline: none;
+        }
+        .modal-form-group input:focus { border-color: var(--accent); background: #fff; }
+        .modal-form-group .checkbox-row { display: flex; align-items: center; gap: 8px; font-size: 0.88em; color: var(--text-secondary); }
+        .modal-form-group .checkbox-row input { width: auto; }
+        .modal-submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.2s;
+            margin-top: 4px;
+        }
+        .modal-submit-btn:hover { background: #1D4ED8; }
+        .modal-error { background: #FEE2E2; color: #991B1B; border-radius: 6px; padding: 10px 14px; font-size: 0.88em; margin-bottom: 14px; display: none; border: 1px solid #FECACA; }
+        .modal-success { background: #D1FAE5; color: #065F46; border-radius: 6px; padding: 10px 14px; font-size: 0.88em; margin-bottom: 14px; display: none; border: 1px solid #6EE7B7; }
+        .modal-link { color: var(--accent); cursor: pointer; font-size: 0.88em; text-align: center; margin-top: 14px; display: block; }
+        .modal-link:hover { text-decoration: underline; }
+        .modal-divider { text-align: center; font-size: 0.82em; color: var(--text-muted); margin: 16px 0; position: relative; }
+        .modal-divider::before { content:''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--border); }
+        .modal-divider span { background: var(--surface); padding: 0 10px; position: relative; }
+
+        /* ── Dashboard ── */
+        .dashboard-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 8000;
+            overflow-y: auto;
+        }
+        .dashboard-overlay.active { display: block; }
+        .dashboard-header {
+            background: var(--navy);
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 3px solid var(--accent);
+        }
+        .dashboard-header h2 { color: #fff; font-size: 1.2em; }
+        .dashboard-body { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+        .profile-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .profile-avatar-lg {
+            width: 64px; height: 64px;
+            background: var(--teal);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+            font-size: 1.6em;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .profile-info h3 { font-size: 1.15em; font-weight: 700; color: var(--slate); margin-bottom: 4px; }
+        .profile-info p { font-size: 0.88em; color: var(--text-secondary); }
+        .submission-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 14px;
+        }
+        .submission-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+        .submission-card h4 { font-size: 0.95em; font-weight: 600; color: var(--slate); }
+        .status-badge { font-size: 0.75em; font-weight: 700; padding: 3px 10px; border-radius: 12px; background: var(--amber-bg); color: var(--amber); }
+        .status-badge.submitted { background: #EFF6FF; color: var(--accent); }
+        .status-badge.processing { background: var(--amber-bg); color: var(--amber); }
+        .status-badge.completed { background: var(--green-bg); color: var(--green); }
+        .submission-card p { font-size: 0.85em; color: var(--text-secondary); }
+
+        /* ── Chatbot ── */
+        #chatToggleBtn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px; height: 56px;
+            background: var(--accent);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.3em;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(37,99,235,0.45);
+            z-index: 7000;
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        #chatToggleBtn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,99,235,0.55); }
+        #chatWindow {
+            position: fixed;
+            bottom: 90px;
+            right: 24px;
+            width: 360px;
+            height: 500px;
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+            z-index: 7000;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform-origin: bottom right;
+            transform: scale(0.85);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+        #chatWindow.open { transform: scale(1); opacity: 1; pointer-events: all; }
+        .chat-header {
+            background: var(--navy);
+            padding: 14px 18px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .chat-header-avatar {
+            width: 36px; height: 36px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1em;
+            flex-shrink: 0;
+        }
+        .chat-header-info h4 { font-size: 0.92em; font-weight: 700; }
+        .chat-header-info span { font-size: 0.75em; color: #6EE7B7; }
+        .chat-header-close { margin-left: auto; background: transparent; border: none; color: #94A3B8; cursor: pointer; font-size: 1em; padding: 4px; }
+        .chat-header-close:hover { color: #fff; }
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .chat-msg { display: flex; flex-direction: column; max-width: 85%; }
+        .chat-msg.bot { align-self: flex-start; }
+        .chat-msg.user { align-self: flex-end; }
+        .chat-bubble {
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+        .chat-msg.bot .chat-bubble { background: var(--surface-2); color: var(--text-primary); border-bottom-left-radius: 4px; border: 1px solid var(--border); }
+        .chat-msg.user .chat-bubble { background: var(--accent); color: #fff; border-bottom-right-radius: 4px; }
+        .chat-ts { font-size: 0.72em; color: var(--text-muted); margin-top: 3px; }
+        .chat-msg.user .chat-ts { text-align: right; }
+        .typing-indicator { display: flex; gap: 4px; padding: 10px 14px; background: var(--surface-2); border-radius: 14px; border-bottom-left-radius: 4px; width: fit-content; border: 1px solid var(--border); }
+        .typing-dot { width: 7px; height: 7px; background: var(--text-muted); border-radius: 50%; animation: typingBounce 1.2s infinite; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typingBounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+        .chat-quick-replies {
+            padding: 8px 14px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 6px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            flex-shrink: 0;
+            scrollbar-width: none;
+        }
+        .chat-quick-replies::-webkit-scrollbar { display: none; }
+        .qr-category-btn {
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border-2);
+            background: var(--surface-2);
+            color: var(--text-secondary);
+            font-size: 0.78em;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+        .qr-category-btn.active, .qr-category-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .chat-qr-questions {
+            padding: 0 14px 8px;
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+        .qr-question-btn {
+            padding: 4px 10px;
+            border-radius: 14px;
+            border: 1px solid var(--border-2);
+            background: transparent;
+            color: var(--accent);
+            font-size: 0.78em;
+            cursor: pointer;
+            white-space: nowrap;
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+        .qr-question-btn:hover { background: var(--accent); color: #fff; }
+        .chat-input-row {
+            display: flex;
+            gap: 8px;
+            padding: 10px 14px;
+            border-top: 1px solid var(--border);
+            flex-shrink: 0;
+            align-items: center;
+        }
+        .chat-input {
+            flex: 1;
+            padding: 9px 12px;
+            border: 1.5px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .chat-input:focus { border-color: var(--accent); }
+        .chat-send-btn {
+            width: 34px; height: 34px;
+            background: var(--accent);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: background 0.2s;
+        }
+        .chat-send-btn:hover { background: #1D4ED8; }
+        @media (max-width: 480px) {
+            #chatWindow { width: calc(100vw - 20px); right: 10px; bottom: 80px; height: calc(100vh - 100px); }
+            .header-badge { display: none; }
+            .user-name-text { display: none; }
+        }
+        /* login prompt notice */
+        .login-notice {
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 0.9em;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <div class="logo-mark">
+                <div class="logo-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <h1>YUVA R&amp;D</h1>
+                    <p class="tagline">National Youth Innovation Pipeline</p>
+                </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+                <div class="header-badge" style="display:none;" id="desktopBadge">Innovation Platform</div>
+                <div class="header-auth" id="headerAuth">
+                    <button class="auth-btn" id="loginBtn" onclick="openModal('loginModal')">Login</button>
+                    <button class="auth-btn signup-btn" id="signupBtn" onclick="openModal('signupModal')">Sign Up</button>
+                </div>
+                <div class="user-info" id="userInfo" style="display:none;">
+                    <div class="user-avatar" id="userAvatarHeader">U</div>
+                    <span class="user-name-text" id="userNameHeader">User</span>
+                    <button class="auth-btn" id="dashboardBtn" onclick="openDashboard()">Dashboard</button>
+                    <button class="auth-btn logout-btn" id="logoutBtn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main page content -->
+    <div id="mainContent">
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-eyebrow">Viksit Bharat 2047 Initiative</span>
+                    <h2>Transforming Ideas into Indigenous Technologies</h2>
+                    <p>Empowering India's youth to solve real industry challenges through systematic validation, mentorship, and commercialization. Building technological sovereignty through structured innovation.</p>
+                    <a href="#submit" class="cta-button">Submit Your Innovation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pipeline Stages -->
+        <section class="section-wrap">
+            <div class="container">
+                <h2 class="section-title">Innovation Pipeline Journey</h2>
+                <p class="section-subtitle">A structured, six-stage process from raw idea to market-ready product</p>
+
+                <div class="pipeline-flow">
+                    <!-- Stage 1 -->
+                    <div class="stage">
+                        <div class="stage-header">
+                            <div class="stage-number">1</div>
+                            <div class="stage-info">
+                                <h3>Student Idea Submission</h3>
+                                <span class="stage-subtitle-label">Innovation Entry Point</span>
+                            </div>
+                        </div>
+                        <div class="stage-content">
+                            <p class="stage-description">Students and youth innovators submit their creative solutions to real-world problems.</p>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Problem identification and description</li>
+                                    <li>Domain selection (agriculture, health, manufacturing, etc.)</li>
+                                    <li>Proposed solution concept and approach</li>
+                                    <li>Initial vision for impact</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arrow-connector">
+                        <svg width="18" height="24" viewBox="0 0 18 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 2v18M2 14l7 8 7-8" stroke="#94A3B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+
+                    <!-- Stage 2 -->
+                    <div class="stage">
+                        <div class="stage-header">
+                            <div class="stage-number">2</div>
+                            <div class="stage-info">
+                                <h3>AI Industry Matching</h3>
+                                <span class="stage-subtitle-label">Need Alignment Stage</span>
+                            </div>
+                        </div>
+                        <div class="stage-content">
+                            <p class="stage-description">Advanced AI analyzes your idea and matches it with real industry challenges.</p>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Keyword and domain analysis using NLP</li>
+                                    <li>Database search of industry challenges</li>
+                                    <li>Smart matching to real-world needs</li>
+                                    <li>Transform from idea to problem-driven solution</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arrow-connector">
+                        <svg width="18" height="24" viewBox="0 0 18 24" fill="none"><path d="M9 2v18M2 14l7 8 7-8" stroke="#94A3B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+
+                    <!-- Stage 3 -->
+                    <div class="stage">
+                        <div class="stage-header">
+                            <div class="stage-number">3</div>
+                            <div class="stage-info">
+                                <h3>Virtual Lab Validation</h3>
+                                <span class="stage-subtitle-label">Feasibility Check Stage</span>
+                            </div>
+                        </div>
+                        <div class="stage-content">
+                            <p class="stage-description">Digital prototyping and system-level validation before physical implementation.</p>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Component requirements analysis</li>
+                                    <li>System workflow logic verification</li>
+                                    <li>Basic feasibility assessment</li>
+                                    <li>Cost and complexity estimation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arrow-connector">
+                        <svg width="18" height="24" viewBox="0 0 18 24" fill="none"><path d="M9 2v18M2 14l7 8 7-8" stroke="#94A3B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+
+                    <!-- Stage 4 -->
+                    <div class="stage">
+                        <div class="stage-header">
+                            <div class="stage-number">4</div>
+                            <div class="stage-info">
+                                <h3>Mentorship &amp; Funding</h3>
+                                <span class="stage-subtitle-label">Development Stage</span>
+                            </div>
+                        </div>
+                        <div class="stage-content">
+                            <p class="stage-description">Connect with industry experts, mentors, and funding opportunities.</p>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Domain experts and professors</li>
+                                    <li>Industry mentors and advisors</li>
+                                    <li>Incubator partnerships</li>
+                                    <li>Funding and grant opportunities</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arrow-connector">
+                        <svg width="18" height="24" viewBox="0 0 18 24" fill="none"><path d="M9 2v18M2 14l7 8 7-8" stroke="#94A3B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+
+                    <!-- Stage 5 -->
+                    <div class="stage">
+                        <div class="stage-header">
+                            <div class="stage-number">5</div>
+                            <div class="stage-info">
+                                <h3>Patent Filing</h3>
+                                <span class="stage-subtitle-label">Intellectual Property Stage</span>
+                            </div>
+                        </div>
+                        <div class="stage-content">
+                            <p class="stage-description">Protect your innovation as intellectual property and build technological sovereignty.</p>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Patent category suggestion</li>
+                                    <li>Drafting guidance and support</li>
+                                    <li>Filing pathway assistance</li>
+                                    <li>IP protection and ownership</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arrow-connector">
+                        <svg width="18" height="24" viewBox="0 0 18 24" fill="none"><path d="M9 2v18M2 14l7 8 7-8" stroke="#94A3B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+
+                    <!-- Stage 6 -->
+                    <div class="stage">
+                        <div class="stage-header">
+                            <div class="stage-number">6</div>
+                            <div class="stage-info">
+                                <h3>Industry Adoption / Startup</h3>
+                                <span class="stage-subtitle-label">Commercialization Stage</span>
+                            </div>
+                        </div>
+                        <div class="stage-content">
+                            <p class="stage-description">Transform validated innovation into market-ready products and economic impact.</p>
+                            <div class="stage-details">
+                                <ul>
+                                    <li>Industry licensing and adoption</li>
+                                    <li>Startup creation support</li>
+                                    <li>Market entry strategy</li>
+                                    <li>Job generation and value creation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section class="impact-section">
+            <div class="container">
+                <h2 class="section-title">Pipeline Impact</h2>
+                <p class="section-subtitle">What each stage of the pipeline delivers for innovators</p>
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        </div>
+                        <h4>Idea to Industry Relevance</h4>
+                        <p>Transform raw ideas into industry-relevant solutions that address real, documented challenges.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                        </div>
+                        <h4>Concept to Validated Design</h4>
+                        <p>Convert concepts into validated, feasible designs through systematic digital prototyping.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        </div>
+                        <h4>Prototype to Protected IP</h4>
+                        <p>Develop working prototypes into protected intellectual property with clear filing pathways.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        </div>
+                        <h4>Innovation to Market Impact</h4>
+                        <p>Launch innovations as market-ready products driving economic growth and employment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Submit Form -->
+        <section class="submit-section" id="submit">
+            <div class="container">
+                <h2 class="section-title">Submit Your Innovation</h2>
+                <p class="section-subtitle">Begin your journey through the national innovation pipeline</p>
+                <div class="form-container">
+                    <form id="innovationForm">
+                        <div class="form-group">
+                            <label for="name">Full Name <span style="color:var(--red)">*</span></label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address <span style="color:var(--red)">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="you@institution.edu" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="institution">Institution / Organization</label>
+                            <input type="text" id="institution" name="institution" placeholder="IIT Delhi, AIIMS, etc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="domain">Domain <span style="color:var(--red)">*</span></label>
+                            <select id="domain" name="domain" required>
+                                <option value="">Select a domain</option>
+                                <option value="agriculture">Agriculture</option>
+                                <option value="health">Healthcare</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="education">Education</option>
+                                <option value="energy">Energy</option>
+                                <option value="environment">Environment</option>
+                                <option value="technology">Technology</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="problem">Problem Statement <span style="color:var(--red)">*</span></label>
+                            <textarea id="problem" name="problem" placeholder="Describe the problem you want to solve..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="solution">Proposed Solution <span style="color:var(--red)">*</span></label>
+                            <textarea id="solution" name="solution" placeholder="Describe your proposed solution..." required></textarea>
+                        </div>
+                        <div class="login-notice" id="loginNotice">
+                            ⚠️ Please <a href="#" onclick="openModal('loginModal');return false;" style="color:var(--accent);font-weight:600;">login</a> or <a href="#" onclick="openModal('signupModal');return false;" style="color:var(--accent);font-weight:600;">sign up</a> to submit your innovation and track it in your dashboard.
+                        </div>
+                        <button type="submit" class="submit-btn">Submit Innovation</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- /mainContent -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><span class="footer-highlight">YUVA R&amp;D</span> &mdash; Empowering youth innovation for <span class="footer-highlight">Viksit Bharat 2047</span></p>
+            <p style="margin-top:8px;">Building Indigenous Technologies &nbsp;|&nbsp; Strengthening Domestic Industries &nbsp;|&nbsp; Creating Technological Sovereignty</p>
+        </div>
+    </footer>
+
+
+    <!-- ===== LOGIN MODAL ===== -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div>
+                    <h3>Login to YUVA R&D</h3>
+                    <p>Access your innovation dashboard</p>
+                </div>
+                <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-error" id="loginError"></div>
+                <div class="modal-success" id="loginSuccess"></div>
+                <div class="modal-form-group">
+                    <label>Email Address *</label>
+                    <input type="email" id="loginEmail" placeholder="you@institution.edu">
+                </div>
+                <div class="modal-form-group">
+                    <label>Password *</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password">
+                </div>
+                <div class="modal-form-group">
+                    <div class="checkbox-row">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe" style="margin-bottom:0;font-weight:400;">Remember me</label>
+                        <span style="margin-left:auto;color:var(--accent);cursor:pointer;font-size:0.85em;" onclick="forgotPassword()">Forgot Password?</span>
+                    </div>
+                </div>
+                <button class="modal-submit-btn" onclick="doLogin()">Login</button>
+                <div class="modal-divider"><span>or</span></div>
+                <span class="modal-link" onclick="switchModal('loginModal','signupModal')">Don't have an account? Sign Up</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SIGNUP MODAL ===== -->
+    <div class="modal-overlay" id="signupModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div>
+                    <h3>Join YUVA R&D</h3>
+                    <p>Create your innovator account</p>
+                </div>
+                <button class="modal-close" onclick="closeModal('signupModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-error" id="signupError"></div>
+                <div class="modal-success" id="signupSuccess"></div>
+                <div class="modal-form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="signupName" placeholder="Enter your full name">
+                </div>
+                <div class="modal-form-group">
+                    <label>Email Address *</label>
+                    <input type="email" id="signupEmail" placeholder="you@institution.edu">
+                </div>
+                <div class="modal-form-group">
+                    <label>Password * <span style="font-weight:400;color:var(--text-muted)">(min. 6 characters)</span></label>
+                    <input type="password" id="signupPassword" placeholder="Create a password">
+                </div>
+                <div class="modal-form-group">
+                    <label>Confirm Password *</label>
+                    <input type="password" id="signupConfirm" placeholder="Repeat your password">
+                </div>
+                <div class="modal-form-group">
+                    <label>Institution / Organization</label>
+                    <input type="text" id="signupInstitution" placeholder="IIT Delhi, AIIMS, etc.">
+                </div>
+                <div class="modal-form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="signupPhone" placeholder="9876543210">
+                </div>
+                <div class="modal-form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" id="signupDob">
+                </div>
+                <div class="modal-form-group">
+                    <div class="checkbox-row">
+                        <input type="checkbox" id="signupTerms">
+                        <label for="signupTerms" style="margin-bottom:0;font-weight:400;">I agree to the <span style="color:var(--accent);">Terms & Conditions</span></label>
+                    </div>
+                </div>
+                <button class="modal-submit-btn" onclick="doSignup()">Create Account</button>
+                <div class="modal-divider"><span>or</span></div>
+                <span class="modal-link" onclick="switchModal('signupModal','loginModal')">Already have an account? Login</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== DASHBOARD OVERLAY ===== -->
+    <div class="dashboard-overlay" id="dashboardOverlay">
+        <div class="dashboard-header">
+            <div>
+                <h2>My Innovation Dashboard</h2>
+                <p style="color:#94A3B8;font-size:0.82em;margin-top:3px;">Track your innovation journey</p>
+            </div>
+            <button class="auth-btn" onclick="closeDashboard()" style="border-color:rgba(255,255,255,0.3);">✕ Close</button>
+        </div>
+        <div class="dashboard-body">
+            <div class="profile-card" id="dashProfileCard"></div>
+            <h3 style="font-size:1em;font-weight:700;color:var(--slate);margin-bottom:16px;">My Submissions</h3>
+            <div id="dashSubmissions"></div>
+        </div>
+    </div>
+
+    <!-- ===== CHATBOT ===== -->
+    <button id="chatToggleBtn" onclick="toggleChat()" title="Chat with YUVA Assistant">
+        <svg id="chatOpenIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <svg id="chatCloseIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <div id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-header-avatar">🤖</div>
+            <div class="chat-header-info">
+                <h4>YUVA Assistant</h4>
+                <span>● Online</span>
+            </div>
+            <button class="chat-header-close" onclick="toggleChat()">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-quick-replies" id="chatCategories">
+            <button class="qr-category-btn active" onclick="setChatCategory('general')">General</button>
+            <button class="qr-category-btn" onclick="setChatCategory('submission')">Submission</button>
+            <button class="qr-category-btn" onclick="setChatCategory('pipeline')">Pipeline</button>
+            <button class="qr-category-btn" onclick="setChatCategory('funding')">Funding</button>
+            <button class="qr-category-btn" onclick="setChatCategory('mentorship')">Mentorship</button>
+            <button class="qr-category-btn" onclick="setChatCategory('commercialization')">Commerce</button>
+        </div>
+        <div class="chat-qr-questions" id="chatQRQuestions"></div>
+        <div class="chat-input-row">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything..." onkeydown="if(event.key==='Enter')sendChatMessage()">
+            <button class="chat-send-btn" onclick="sendChatMessage()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================================
+         OVERLAY SCREENS
+    ======================================================== -->
+
+    <!-- AI Matching Screen -->
+    <div id="aiMatchingScreen" class="overlay-screen">
+        <div class="overlay-header">
+            <div class="container">
+                <h2>AI Industry Matching</h2>
+                <p>Analyzing your innovation and matching with industry needs</p>
+            </div>
+        </div>
+        <div class="overlay-body">
+
+            <!-- Submission Display -->
+            <div class="result-info-card" id="submissionDisplay">
+                <h3>Your Submission</h3>
+                <div id="submissionDetails"></div>
+            </div>
+
+            <!-- Processing Steps -->
+            <div id="processingSteps" style="margin-bottom:28px;">
+                <div class="section-label">Processing Pipeline</div>
+
+                <div class="process-step" id="step1">
+                    <div class="process-step-header">
+                        <div class="step-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        </div>
+                        <div style="flex:1">
+                            <div class="step-label">Keyword &amp; Domain Analysis</div>
+                            <div class="step-desc">Extracting key terms and analyzing domain relevance</div>
+                            <div class="progress-track"><div class="progress-fill" id="progress1"></div></div>
+                        </div>
+                        <div class="check-badge" id="check1">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step" id="step2">
+                    <div class="process-step-header">
+                        <div class="step-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                        </div>
+                        <div style="flex:1">
+                            <div class="step-label">Database Search</div>
+                            <div class="step-desc">Searching industry challenges database</div>
+                            <div class="progress-track"><div class="progress-fill" id="progress2"></div></div>
+                        </div>
+                        <div class="check-badge" id="check2">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step" id="step3">
+                    <div class="process-step-header">
+                        <div class="step-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <div style="flex:1">
+                            <div class="step-label">Smart Matching Algorithm</div>
+                            <div class="step-desc">Matching your solution with real-world industry needs</div>
+                            <div class="progress-track"><div class="progress-fill" id="progress3"></div></div>
+                        </div>
+                        <div class="check-badge" id="check3">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step" id="step4">
+                    <div class="process-step-header">
+                        <div class="step-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+                        </div>
+                        <div style="flex:1">
+                            <div class="step-label">Transformation Analysis</div>
+                            <div class="step-desc">Converting idea to problem-driven solution</div>
+                            <div class="progress-track"><div class="progress-fill" id="progress4"></div></div>
+                        </div>
+                        <div class="check-badge" id="check4">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matching Results -->
+            <div id="matchingResults" style="display:none;">
+                <div class="result-success">
+                    <h3>Match Found</h3>
+                    <p>Your innovation has been successfully matched with industry needs</p>
+                </div>
+                <div class="result-info-card">
+                    <h3>Industry Match Details</h3>
+                    <div id="matchContent"></div>
+                </div>
+                <div class="btn-row">
+                    <button onclick="proceedToVirtualLab()" class="action-btn">Proceed to Virtual Lab Validation &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Virtual Lab Validation Screen -->
+    <div id="virtualLabScreen" class="overlay-screen">
+        <div class="overlay-header">
+            <div class="container">
+                <h2>Virtual Lab Validation</h2>
+                <p>Digital prototyping and feasibility assessment — can this idea realistically work at system level?</p>
+            </div>
+        </div>
+        <div class="overlay-body">
+
+            <div id="validationChecks" style="margin-bottom:28px;">
+
+                <!-- Check 1 -->
+                <div class="card" id="check1Container" style="opacity:0.35; transition:opacity 0.4s ease;">
+                    <div class="process-step-header" style="align-items:flex-start;">
+                        <div class="step-icon" style="margin-top:2px;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                        </div>
+                        <div style="flex:1">
+                            <div class="step-label">Required Components Analysis</div>
+                            <div class="step-desc">Identifying and validating all technical components needed</div>
+                            <div class="progress-track"><div class="progress-fill teal" id="componentProgress"></div></div>
+                            <div id="componentResults" style="display:none; margin-top:14px;">
+                                <div class="data-row-bar blue">
+                                    <h4>Components Identified</h4>
+                                    <ul id="componentList" style="list-style:none;padding:0;margin-top:8px;"></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="check-badge" id="componentCheckmark">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Check 2 -->
+                <div class="card" id="check2Container" style="opacity:0.35; transition:opacity 0.4s ease;">
+                    <div class="process-step-header" style="align-items:flex-start;">
+                        <div class="step-icon" style="margin-top:2px;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+                        </div>
+                        <div style="flex:1">
+                            <div class="step-label">System Workflow Logic</div>
+                            <div class="step-desc">Validating system architecture and data flow</div>
+                            <div class="progress-track"><div class="progress-fill green" id="workflowProgress"></div></div>
+                            <div id="workflowResults" style="display:none; margin-top:14px;">
+                                <div class="data-row-bar navy">
+                                    <h4>Workflow Validation</h4>
+                                    <div class="workflow-diagram" id="workflowDiagram" style="margin-top:10px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="check-badge" id="workflowCheckmark">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Check 3 -->
+                <div class="card" id="check3Container" style="opacity:0.35; transition:opacity 0.4s ease;">
+                    <div class="process-step-header" style="align-items:flex-start;">
+                        <div class="step-icon" style="margin-top:2px;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        </div>
+                        <div style="flex:1">
+                            <div class="step-label">Basic Feasibility Assessment</div>
+                            <div class="step-desc">Evaluating technical and practical feasibility</div>
+                            <div class="progress-track"><div class="progress-fill gold" id="feasibilityProgress"></div></div>
+                            <div id="feasibilityResults" style="display:none; margin-top:14px;">
+                                <div class="data-row-bar gold">
+                                    <h4>Feasibility Score</h4>
+                                    <div id="feasibilityMetrics" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="check-badge" id="feasibilityCheckmark">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Check 4 -->
+                <div class="card" id="check4Container" style="opacity:0.35; transition:opacity 0.4s ease;">
+                    <div class="process-step-header" style="align-items:flex-start;">
+                        <div class="step-icon" style="margin-top:2px;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                        </div>
+                        <div style="flex:1">
+                            <div class="step-label">Estimated Cost &amp; Complexity</div>
+                            <div class="step-desc">Calculating development costs and complexity index</div>
+                            <div class="progress-track"><div class="progress-fill" id="costProgress"></div></div>
+                            <div id="costResults" style="display:none; margin-top:14px;">
+                                <div class="data-row-bar green">
+                                    <div id="costBreakdown"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="check-badge" id="costCheckmark">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risk Assessment -->
+            <div id="riskAssessment" style="display:none; margin-bottom:28px;">
+                <div class="card" style="border-color:#FDE68A;">
+                    <div class="section-label">Risk Analysis</div>
+                    <div id="riskContent"></div>
+                </div>
+            </div>
+
+            <!-- Final Validation Report -->
+            <div id="validationReport" style="display:none;">
+                <div class="result-success">
+                    <h3>Validation Complete</h3>
+                    <p>Your innovation has passed all feasibility checks</p>
+                    <div id="overallScore" style="font-size:2.5em;font-weight:700;color:#065F46;margin-top:12px;"></div>
+                </div>
+                <div class="result-info-card">
+                    <h3>Validation Summary</h3>
+                    <div id="summaryContent"></div>
+                </div>
+                <div class="btn-row">
+                    <button onclick="proceedToMentorship()" class="action-btn">Proceed to Mentorship &amp; Funding &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mentorship & Funding Screen -->
+    <div id="mentorshipScreen" class="overlay-screen">
+        <div class="overlay-header">
+            <div class="container">
+                <h2>Mentorship &amp; Funding</h2>
+                <p>Connecting you with domain experts and funding resources to build your prototype</p>
+            </div>
+        </div>
+        <div class="overlay-body">
+
+            <!-- Connection Progress -->
+            <div id="connectionProgress" style="margin-bottom:28px;">
+                <div class="card" style="text-align:center;">
+                    <div class="step-label" style="margin-bottom:14px;">Matching you with the right resources</div>
+                    <div class="progress-track"><div class="progress-fill teal" id="matchProgress"></div></div>
+                    <p id="matchingText" style="color:var(--text-secondary);font-size:0.88em;margin-top:10px;"></p>
+                </div>
+            </div>
+
+            <div id="mentorsSection" style="display:none;margin-bottom:28px;">
+                <div class="section-label">Matched Mentors</div>
+                <div id="mentorsList" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;"></div>
+            </div>
+
+            <div id="expertsSection" style="display:none;margin-bottom:28px;">
+                <div class="section-label">Industry Experts</div>
+                <div id="expertsList" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;"></div>
+            </div>
+
+            <div id="incubatorsSection" style="display:none;margin-bottom:28px;">
+                <div class="section-label">Incubator Partnerships</div>
+                <div id="incubatorsList" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;"></div>
+            </div>
+
+            <div id="fundingSection" style="display:none;margin-bottom:28px;">
+                <div class="section-label">Funding Opportunities</div>
+                <div id="fundingList" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;"></div>
+            </div>
+
+            <!-- Development Roadmap -->
+            <div id="developmentRoadmap" style="display:none;margin-bottom:28px;">
+                <div class="card" style="border-color:#6EE7B7;">
+                    <div class="section-label">Development Roadmap</div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:10px;">
+                        <div class="roadmap-card">
+                            <div class="roadmap-card-icon" style="background:var(--blue-bg);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
+                            </div>
+                            <h4>Design Phase</h4>
+                            <div class="duration">2&ndash;3 weeks</div>
+                            <p>Technical design &amp; schematics</p>
+                        </div>
+                        <div class="roadmap-card">
+                            <div class="roadmap-card-icon" style="background:#F3E8FF;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                            </div>
+                            <h4>Prototype Build</h4>
+                            <div class="duration">4&ndash;6 weeks</div>
+                            <p>Working prototype development</p>
+                        </div>
+                        <div class="roadmap-card">
+                            <div class="roadmap-card-icon" style="background:#FFF7ED;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18"/></svg>
+                            </div>
+                            <h4>Testing Phase</h4>
+                            <div class="duration">2&ndash;3 weeks</div>
+                            <p>Field testing &amp; refinement</p>
+                        </div>
+                        <div class="roadmap-card">
+                            <div class="roadmap-card-icon" style="background:var(--green-bg);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            </div>
+                            <h4>Market Ready</h4>
+                            <div class="duration">3&ndash;4 weeks</div>
+                            <p>Final product &amp; launch prep</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Summary -->
+            <div id="successSummary" style="display:none;">
+                <div class="result-success">
+                    <h3>Connections Established</h3>
+                    <p>You are now ready to transform your validated idea into a working prototype</p>
+                </div>
+                <div class="result-info-card">
+                    <h3>Next Steps</h3>
+                    <div id="mentorNextSteps"></div>
+                    <div style="margin-top:18px;padding:16px;background:var(--surface-2);border-radius:6px;border-left:3px solid var(--green);">
+                        <strong style="color:var(--green);font-size:0.9em;">Estimated Timeline:</strong>
+                        <p style="color:var(--text-secondary);font-size:0.88em;margin-top:4px;">3&ndash;4 months from guidance to working prototype</p>
+                    </div>
+                </div>
+                <div class="btn-row">
+                    <button onclick="proceedToPatent()" class="action-btn">Proceed to Patent Filing &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Patent Filing Screen -->
+    <div id="patentScreen" class="overlay-screen">
+        <div class="overlay-header">
+            <div class="container">
+                <h2>Patent Filing &mdash; IP Protection</h2>
+                <p>Transform your innovation into protected intellectual property</p>
+            </div>
+        </div>
+        <div class="overlay-body">
+
+            <!-- Analysis Progress -->
+            <div id="patentAnalysis" style="margin-bottom:28px;">
+                <div class="card" style="text-align:center;">
+                    <div class="step-label" style="margin-bottom:14px;">Analyzing Innovation for Patent Categories</div>
+                    <div class="progress-track"><div class="progress-fill" id="patentAnalysisProgress"></div></div>
+                    <p id="analysisText" style="color:var(--text-secondary);font-size:0.88em;margin-top:10px;"></p>
+                </div>
+            </div>
+
+            <!-- Patent Category Suggestion -->
+            <div id="patentCategory" style="display:none;margin-bottom:28px;">
+                <div class="section-label">Recommended Patent Category</div>
+                <div class="card" style="border-color:#6EE7B7;">
+                    <div style="text-align:center;margin-bottom:20px;">
+                        <div style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;background:var(--green-bg);border-radius:50%;margin-bottom:14px;">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <h4 id="patentCategoryTitle" style="font-size:1.1em;font-weight:700;color:var(--slate);margin-bottom:10px;"></h4>
+                        <p id="patentCategoryDesc" style="color:var(--text-secondary);font-size:0.92em;line-height:1.65;max-width:580px;margin:0 auto;"></p>
+                    </div>
+                    <div id="categoryDetails" style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:20px;"></div>
+                </div>
+            </div>
+
+            <!-- Novelty Check -->
+            <div id="noveltyCheck" style="display:none;margin-bottom:28px;">
+                <div class="section-label">Novelty Assessment</div>
+                <div class="card">
+                    <div class="score-row" id="noveltyScores">
+                        <div class="score-tile">
+                            <div class="score-label">Novelty Score</div>
+                            <div class="score-val" style="color:var(--green);">92%</div>
+                        </div>
+                        <div class="score-tile">
+                            <div class="score-label">Inventive Step</div>
+                            <div class="score-val" style="color:var(--accent);">88%</div>
+                        </div>
+                        <div class="score-tile">
+                            <div class="score-label">Industrial Applicability</div>
+                            <div class="score-val" style="color:var(--teal);">95%</div>
+                        </div>
+                    </div>
+                    <div class="data-row-bar green">
+                        <h4>Patent Eligibility: HIGH</h4>
+                        <p>Your innovation demonstrates strong novelty and is highly eligible for patent protection.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drafting Guidance -->
+            <div id="draftingGuidance" style="display:none;margin-bottom:28px;">
+                <div class="section-label">Patent Drafting Guidance</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;">
+                    <div class="card" style="border-color:#C4B5FD;">
+                        <div style="font-weight:600;color:var(--navy);margin-bottom:8px;font-size:0.95em;">Title &amp; Abstract</div>
+                        <p style="font-size:0.85em;color:var(--text-secondary);line-height:1.6;margin-bottom:12px;">Clear, concise description of your innovation highlighting the technical problem and solution.</p>
+                        <div style="font-size:0.82em;color:var(--green);font-weight:600;">&#10003; Draft ready</div>
+                    </div>
+                    <div class="card" style="border-color:#93C5FD;">
+                        <div style="font-weight:600;color:var(--navy);margin-bottom:8px;font-size:0.95em;">Technical Description</div>
+                        <p style="font-size:0.85em;color:var(--text-secondary);line-height:1.6;margin-bottom:12px;">Detailed explanation of components, workflow, and technical implementation.</p>
+                        <div style="font-size:0.82em;color:var(--green);font-weight:600;">&#10003; Draft ready</div>
+                    </div>
+                    <div class="card" style="border-color:#FCD34D;">
+                        <div style="font-weight:600;color:var(--navy);margin-bottom:8px;font-size:0.95em;">Claims</div>
+                        <p style="font-size:0.85em;color:var(--text-secondary);line-height:1.6;margin-bottom:12px;">Precise legal statements defining the scope of your patent protection.</p>
+                        <div style="font-size:0.82em;color:var(--green);font-weight:600;">&#10003; Draft ready</div>
+                    </div>
+                    <div class="card" style="border-color:#6EE7B7;">
+                        <div style="font-weight:600;color:var(--navy);margin-bottom:8px;font-size:0.95em;">Drawings &amp; Diagrams</div>
+                        <p style="font-size:0.85em;color:var(--text-secondary);line-height:1.6;margin-bottom:12px;">Technical drawings illustrating your innovation's components and workflow.</p>
+                        <div style="font-size:0.82em;color:var(--green);font-weight:600;">&#10003; Draft ready</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filing Pathway -->
+            <div id="filingPathway" style="display:none;margin-bottom:28px;">
+                <div class="section-label">Patent Filing Pathway</div>
+                <div class="card">
+                    <div class="filing-step">
+                        <div class="filing-step-num green">1</div>
+                        <div>
+                            <h4>Provisional Patent Application</h4>
+                            <p>File immediately to secure your filing date. Valid for 12 months.</p>
+                            <div class="meta">Cost: Rs. 1,600 (individuals) &nbsp;|&nbsp; Timeline: 2&ndash;3 days</div>
+                        </div>
+                    </div>
+                    <div class="filing-step">
+                        <div class="filing-step-num blue">2</div>
+                        <div>
+                            <h4>Complete Specification</h4>
+                            <p>Submit detailed patent application within 12 months of provisional filing.</p>
+                            <div class="meta">Cost: Rs. 8,000 (individuals) &nbsp;|&nbsp; Timeline: Within 12 months</div>
+                        </div>
+                    </div>
+                    <div class="filing-step">
+                        <div class="filing-step-num teal">3</div>
+                        <div>
+                            <h4>Examination Request</h4>
+                            <p>Request examination of your patent application.</p>
+                            <div class="meta">Cost: Rs. 8,000 (individuals) &nbsp;|&nbsp; Timeline: Within 48 months</div>
+                        </div>
+                    </div>
+                    <div class="filing-step">
+                        <div class="filing-step-num gold">4</div>
+                        <div>
+                            <h4>Patent Grant</h4>
+                            <p>Receive patent certificate after successful examination.</p>
+                            <div class="meta">Timeline: 2&ndash;3 years from filing &nbsp;|&nbsp; Protection: 20 years</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support Services -->
+            <div id="supportServices" style="display:none;margin-bottom:28px;">
+                <div class="section-label">Patent Support Services</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;">
+                    <div class="service-card">
+                        <div class="service-icon" style="background:var(--green-bg);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                        </div>
+                        <h4>Patent Attorney</h4>
+                        <p>Expert legal guidance throughout filing process</p>
+                        <button onclick="alert('Patent attorney connection initiated. You will be contacted within 24 hours.')" class="action-btn success" style="width:100%;padding:9px;">Connect</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon" style="background:var(--blue-bg);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        </div>
+                        <h4>Document Preparation</h4>
+                        <p>Professional drafting of patent documents</p>
+                        <button onclick="alert('Document preparation service activated. Templates and guidelines sent to your email.')" class="action-btn" style="width:100%;padding:9px;">Get Templates</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon" style="background:#F3E8FF;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        </div>
+                        <h4>Prior Art Search</h4>
+                        <p>Comprehensive search of existing patents</p>
+                        <button onclick="alert('Prior art search initiated. Report will be ready in 3&ndash;5 business days.')" class="action-btn" style="width:100%;padding:9px;background:var(--teal);">Start Search</button>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon" style="background:#FFFBEB;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                        </div>
+                        <h4>Filing Assistance</h4>
+                        <p>Step-by-step help with online filing</p>
+                        <button onclick="alert('Filing assistance scheduled. Our team will guide you through the entire process.')" class="action-btn" style="width:100%;padding:9px;background:var(--gold);">Schedule Help</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patent Success -->
+            <div id="patentSuccess" style="display:none;">
+                <div class="result-success">
+                    <h3>Patent Strategy Ready</h3>
+                    <p>Your innovation is now ready for IP protection</p>
+                </div>
+                <div class="result-info-card">
+                    <h3>Technological Sovereignty Achieved</h3>
+                    <div style="display:grid;gap:12px;">
+                        <div class="data-row-bar green">
+                            <h4>Protected IP</h4>
+                            <p>Your innovation is now protectable intellectual property, not just a project</p>
+                        </div>
+                        <div class="data-row-bar blue">
+                            <h4>Indigenous Technology</h4>
+                            <p>Contributing to India's technological independence</p>
+                        </div>
+                        <div class="data-row-bar gold">
+                            <h4>Market Value</h4>
+                            <p>Patent protection increases commercial potential significantly</p>
+                        </div>
+                        <div class="data-row-bar navy">
+                            <h4>20-Year Protection</h4>
+                            <p>Exclusive rights to your innovation for two decades</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-row">
+                    <button onclick="proceedToCommercialize()" class="action-btn">Proceed to Industry Adoption / Startup &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Commercialization Screen -->
+    <div id="commercializationScreen" class="overlay-screen">
+        <div class="overlay-header">
+            <div class="container">
+                <h2>Commercialization Stage</h2>
+                <p>Choose your path to market</p>
+            </div>
+        </div>
+        <div class="overlay-body">
+
+            <div class="section-label" style="text-align:center;margin-bottom:8px;">Select Your Commercialization Strategy</div>
+            <p style="text-align:center;color:var(--text-secondary);font-size:0.9em;margin-bottom:28px;">Based on your innovation and goals, choose the path that aligns with your vision</p>
+
+            <!-- Path Selection -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px;" class="path-grid">
+                <!-- Path A -->
+                <div id="pathA" class="path-card" onclick="selectPath('industry')">
+                    <div class="path-card-icon" style="background:var(--blue-bg);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                    </div>
+                    <h4>Path A: Industry Adoption</h4>
+                    <div class="path-desc">License technology to established companies</div>
+                    <div style="font-size:0.8em;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin:14px 0 8px;">Key Benefits</div>
+                    <ul>
+                        <li>Faster market penetration</li>
+                        <li>Royalty-based revenue stream</li>
+                        <li>Industry expertise and resources</li>
+                        <li>Reduced business risk</li>
+                        <li>Established distribution channels</li>
+                    </ul>
+                    <div style="font-size:0.8em;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin:14px 0 8px;">What We Provide</div>
+                    <ul>
+                        <li>Industry partner matching</li>
+                        <li>License agreement templates</li>
+                        <li>Valuation assistance</li>
+                        <li>Negotiation support</li>
+                        <li>Legal documentation</li>
+                    </ul>
+                </div>
+
+                <!-- Path B -->
+                <div id="pathB" class="path-card" onclick="selectPath('startup')">
+                    <div class="path-card-icon" style="background:#F3E8FF;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .95h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.4a16 16 0 006.69 6.69l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    </div>
+                    <h4>Path B: Startup Creation</h4>
+                    <div class="path-desc">Build your own company around the innovation</div>
+                    <div style="font-size:0.8em;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin:14px 0 8px;">Key Benefits</div>
+                    <ul>
+                        <li>Full control over vision</li>
+                        <li>Higher potential returns</li>
+                        <li>Build company valuation</li>
+                        <li>Create employment</li>
+                        <li>Brand ownership</li>
+                    </ul>
+                    <div style="font-size:0.8em;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin:14px 0 8px;">What We Provide</div>
+                    <ul>
+                        <li>Business model guidance</li>
+                        <li>Startup incubation support</li>
+                        <li>Investor connections</li>
+                        <li>Marketing strategy</li>
+                        <li>Team building resources</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Selected Path Details -->
+            <div id="pathDetails" style="display:none;">
+                <!-- Industry Details -->
+                <div id="industryDetails" style="display:none;">
+                    <div class="card" style="border-color:#93C5FD;margin-bottom:20px;">
+                        <div class="section-label">Industry Adoption Roadmap</div>
+
+                        <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:14px;">
+                            <div style="font-weight:600;color:var(--slate);margin-bottom:12px;font-size:0.95em;">Step 1: Potential Partner Identification</div>
+                            <p style="color:var(--text-secondary);font-size:0.88em;margin-bottom:14px;">We will connect you with companies that align with your technology:</p>
+                            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;">
+                                <div style="background:var(--blue-bg);padding:12px;border-radius:6px;">
+                                    <div style="font-weight:600;color:var(--accent);font-size:0.88em;margin-bottom:3px;">Large Enterprises</div>
+                                    <div style="color:var(--text-secondary);font-size:0.82em;">Established market leaders</div>
+                                </div>
+                                <div style="background:var(--blue-bg);padding:12px;border-radius:6px;">
+                                    <div style="font-weight:600;color:var(--accent);font-size:0.88em;margin-bottom:3px;">Manufacturing Companies</div>
+                                    <div style="color:var(--text-secondary);font-size:0.82em;">Industry-specific partners</div>
+                                </div>
+                                <div style="background:var(--blue-bg);padding:12px;border-radius:6px;">
+                                    <div style="font-weight:600;color:var(--accent);font-size:0.88em;margin-bottom:3px;">Technology Firms</div>
+                                    <div style="color:var(--text-secondary);font-size:0.82em;">Tech integration partners</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:14px;">
+                            <div style="font-weight:600;color:var(--slate);margin-bottom:12px;font-size:0.95em;">Step 2: License Agreement Structuring</div>
+                            <p style="color:var(--text-secondary);font-size:0.88em;margin-bottom:12px;">Choose your licensing model:</p>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                                <div style="background:var(--green-bg);border:1px solid #6EE7B7;padding:16px;border-radius:6px;">
+                                    <div style="font-weight:700;color:var(--green);font-size:0.9em;margin-bottom:8px;">Royalty-Based</div>
+                                    <ul style="list-style:none;padding:0;font-size:0.83em;color:var(--text-secondary);line-height:1.7;">
+                                        <li>Percentage of sales revenue</li>
+                                        <li>Ongoing income stream</li>
+                                        <li>Performance-linked earnings</li>
+                                    </ul>
+                                </div>
+                                <div style="background:#FFFBEB;border:1px solid #FCD34D;padding:16px;border-radius:6px;">
+                                    <div style="font-weight:700;color:var(--gold);font-size:0.9em;margin-bottom:8px;">Fixed Fee</div>
+                                    <ul style="list-style:none;padding:0;font-size:0.83em;color:var(--text-secondary);line-height:1.7;">
+                                        <li>Upfront lump sum payment</li>
+                                        <li>Predictable income</li>
+                                        <li>Simplified administration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:20px;">
+                            <div style="font-weight:600;color:var(--slate);margin-bottom:14px;font-size:0.95em;">Step 3: Ongoing Support</div>
+                            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;">
+                                <div style="text-align:center;padding:12px;">
+                                    <div style="font-weight:600;color:var(--accent);font-size:0.88em;margin-bottom:4px;">Legal Support</div>
+                                    <div style="color:var(--text-secondary);font-size:0.82em;">Contract review &amp; negotiation</div>
+                                </div>
+                                <div style="text-align:center;padding:12px;">
+                                    <div style="font-weight:600;color:var(--accent);font-size:0.88em;margin-bottom:4px;">Due Diligence</div>
+                                    <div style="color:var(--text-secondary);font-size:0.82em;">Partner verification</div>
+                                </div>
+                                <div style="text-align:center;padding:12px;">
+                                    <div style="font-weight:600;color:var(--accent);font-size:0.88em;margin-bottom:4px;">Valuation</div>
+                                    <div style="color:var(--text-secondary);font-size:0.82em;">Fair pricing guidance</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Startup Details -->
+                <div id="startupDetails" style="display:none;">
+                    <div class="card" style="border-color:#C4B5FD;margin-bottom:20px;">
+                        <div class="section-label">Startup Creation Roadmap</div>
+
+                        <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:14px;">
+                            <div style="font-weight:600;color:var(--slate);margin-bottom:12px;font-size:0.95em;">Step 1: Business Foundation</div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                                <div>
+                                    <div style="font-weight:600;color:var(--teal);font-size:0.85em;margin-bottom:8px;">Legal Setup</div>
+                                    <ul style="list-style:none;padding:0;font-size:0.83em;color:var(--text-secondary);line-height:1.8;">
+                                        <li>Company registration</li>
+                                        <li>Startup India registration</li>
+                                        <li>DPIIT recognition</li>
+                                        <li>Tax registrations (GST, PAN)</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div style="font-weight:600;color:var(--teal);font-size:0.85em;margin-bottom:8px;">Business Model</div>
+                                    <ul style="list-style:none;padding:0;font-size:0.83em;color:var(--text-secondary);line-height:1.8;">
+                                        <li>Revenue model design</li>
+                                        <li>Pricing strategy</li>
+                                        <li>Market positioning</li>
+                                        <li>Competitive analysis</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:14px;">
+                            <div style="font-weight:600;color:var(--slate);margin-bottom:12px;font-size:0.95em;">Step 2: Funding &amp; Resources</div>
+                            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;">
+                                <div style="background:#F3E8FF;padding:12px;border-radius:6px;">
+                                    <div style="font-weight:600;color:var(--teal);font-size:0.88em;margin-bottom:3px;">Seed Funding</div>
+                                    <div style="color:var(--text-secondary);font-size:0.82em;">Angel investors, seed VCs</div>
+                                </div>
+                                <div style="background:#F3E8FF;padding:12px;border-radius:6px;">
+                                    <div style="font-weight:600;color:var(--teal);font-size:0.88em;margin-bottom:3px;">Incubation</div>
+                                    <div style="color:var(--text-secondary);font-size:0.82em;">AIC, T-Hub, other incubators</div>
+                                </div>
+                                <div style="background:#F3E8FF;padding:12px;border-radius:6px;">
+                                    <div style="font-weight:600;color:var(--teal);font-size:0.88em;margin-bottom:3px;">Grants</div>
+                                    <div style="color:var(--text-secondary);font-size:0.82em;">SISFS, NIDHI, state schemes</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:14px;">
+                            <div style="font-weight:600;color:var(--slate);margin-bottom:12px;font-size:0.95em;">Step 3: Team Building</div>
+                            <p style="color:var(--text-secondary);font-size:0.88em;margin-bottom:12px;">Build a strong founding team:</p>
+                            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;">
+                                <div style="text-align:center;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;">
+                                    <div style="font-weight:600;color:var(--teal);font-size:0.85em;">Technology</div>
+                                </div>
+                                <div style="text-align:center;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;">
+                                    <div style="font-weight:600;color:var(--teal);font-size:0.85em;">Business</div>
+                                </div>
+                                <div style="text-align:center;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;">
+                                    <div style="font-weight:600;color:var(--teal);font-size:0.85em;">Marketing</div>
+                                </div>
+                                <div style="text-align:center;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;">
+                                    <div style="font-weight:600;color:var(--teal);font-size:0.85em;">Design</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:20px;">
+                            <div style="font-weight:600;color:var(--slate);margin-bottom:12px;font-size:0.95em;">Step 4: Go-to-Market Strategy</div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                                <div>
+                                    <div style="font-weight:600;color:var(--gold);font-size:0.85em;margin-bottom:8px;">Product Launch</div>
+                                    <ul style="list-style:none;padding:0;font-size:0.83em;color:var(--text-secondary);line-height:1.8;">
+                                        <li>MVP development</li>
+                                        <li>Beta testing</li>
+                                        <li>Product-market fit validation</li>
+                                        <li>Launch campaign</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <div style="font-weight:600;color:var(--gold);font-size:0.85em;margin-bottom:8px;">Growth Strategy</div>
+                                    <ul style="list-style:none;padding:0;font-size:0.83em;color:var(--text-secondary);line-height:1.8;">
+                                        <li>Customer acquisition</li>
+                                        <li>Digital marketing</li>
+                                        <li>Sales channels</li>
+                                        <li>Scaling operations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="btn-row">
+                    <button onclick="confirmPath()" class="action-btn success">Confirm Path &amp; Get Started</button>
+                    <button onclick="goBackToPatent()" class="action-btn secondary">&larr; Back to Patent Stage</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================================
+         JAVASCRIPT (full functionality preserved)
+    ======================================================== -->
+    <script>
+        let submittedData = {};
+
+        /* ── Form Submission ── */
+        document.getElementById('innovationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            submittedData = {};
+            formData.forEach((value, key) => { submittedData[key] = value; });
+            showAIMatching();
+        });
+
+        function showAIMatching() {
+            document.getElementById('aiMatchingScreen').style.display = 'block';
+            window.scrollTo(0, 0);
+            const submissionHTML = `
+                <div class="submission-row"><strong>Name</strong><span>${submittedData.name}</span></div>
+                <div class="submission-row"><strong>Email</strong><span>${submittedData.email}</span></div>
+                <div class="submission-row"><strong>Institution</strong><span>${submittedData.institution || 'Not provided'}</span></div>
+                <div class="submission-row"><strong>Domain</strong><span>${submittedData.domain}</span></div>
+                <div class="submission-row"><strong>Problem</strong><span>${submittedData.problem}</span></div>
+                <div class="submission-row"><strong>Proposed Solution</strong><span>${submittedData.solution}</span></div>
+            `;
+            document.getElementById('submissionDetails').innerHTML = submissionHTML;
+            processSteps();
+        }
+
+        function processSteps() {
+            const activate = (id, progressId, checkId, delay) => {
+                setTimeout(() => {
+                    document.getElementById(id).classList.add('active');
+                    document.getElementById(progressId).style.width = '100%';
+                    setTimeout(() => {
+                        document.getElementById(checkId).classList.add('visible');
+                    }, 1000);
+                }, delay);
+            };
+            activate('step1', 'progress1', 'check1', 500);
+            activate('step2', 'progress2', 'check2', 2500);
+            activate('step3', 'progress3', 'check3', 4500);
+            setTimeout(() => {
+                document.getElementById('step4').classList.add('active');
+                document.getElementById('progress4').style.width = '100%';
+                setTimeout(() => {
+                    document.getElementById('check4').classList.add('visible');
+                    showResults();
+                }, 1000);
+            }, 6500);
+        }
+
+        function showResults() {
+            setTimeout(() => {
+                document.getElementById('matchingResults').style.display = 'block';
+                const industryMatches = {
+                    'agriculture': { challenge: 'Irrigation inefficiency and water wastage in small-scale farming', impact: 'Affects 60% of Indian farmers, leading to 40% water loss', companies: 'Jain Irrigation, Mahindra Agri Solutions, local agricultural cooperatives' },
+                    'health':       { challenge: 'Healthcare accessibility in rural areas and patient monitoring', impact: 'Rural areas have 70% less access to healthcare facilities', companies: 'Apollo Hospitals, Fortis Healthcare, government health programs' },
+                    'manufacturing':{ challenge: 'Production efficiency and quality control automation', impact: 'Manufacturing defects cost Indian industry Rs. 50,000 crores annually', companies: 'Tata Steel, Larsen & Toubro, Bharat Heavy Electricals' },
+                    'education':    { challenge: 'Digital learning accessibility and personalized education', impact: 'Only 24% of students have access to quality digital learning', companies: 'BYJU\'S, Unacademy, government education initiatives' },
+                    'energy':       { challenge: 'Renewable energy optimization and storage solutions', impact: 'India needs 500 GW renewable energy capacity by 2030', companies: 'NTPC, Tata Power, Adani Green Energy' },
+                    'environment':  { challenge: 'Waste management and pollution control systems', impact: 'Indian cities generate 62 million tonnes of waste annually', companies: 'Waste management authorities, environmental NGOs, municipal corporations' },
+                    'technology':   { challenge: 'Digital infrastructure and cybersecurity solutions', impact: 'India faces over 1 million cyber attacks daily', companies: 'TCS, Infosys, Wipro, government IT departments' }
+                };
+                const match = industryMatches[submittedData.domain] || industryMatches['technology'];
+                const matchHTML = `
+                    <div class="data-row-bar green"><h4>Matched Industry Challenge</h4><p>${match.challenge}</p></div>
+                    <div class="data-row-bar gold"><h4>Economic Impact</h4><p>${match.impact}</p></div>
+                    <div class="data-row-bar blue"><h4>Potential Industry Partners</h4><p>${match.companies}</p></div>
+                    <div class="data-row-bar navy"><h4>Transformation Complete</h4>
+                        <p><strong>Before:</strong> "${submittedData.solution.substring(0, 60)}..."</p>
+                        <p style="margin-top:6px;"><strong>After:</strong> This solution addresses ${match.challenge.toLowerCase()}, providing economic relevance and market potential.</p>
+                    </div>
+                `;
+                document.getElementById('matchContent').innerHTML = matchHTML;
+                document.getElementById('matchingResults').scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        }
+
+        function proceedToVirtualLab() {
+            document.getElementById('aiMatchingScreen').style.display = 'none';
+            document.getElementById('virtualLabScreen').style.display = 'block';
+            window.scrollTo(0, 0);
+            startVirtualLabValidation();
+        }
+
+        function startVirtualLabValidation() {
+            setTimeout(() => {
+                document.getElementById('check1Container').style.opacity = '1';
+                document.getElementById('componentProgress').style.width = '100%';
+                setTimeout(() => {
+                    const components = generateComponents(submittedData.domain);
+                    const componentList = document.getElementById('componentList');
+                    componentList.innerHTML = components.map(comp =>
+                        `<li style="padding:6px 0;border-bottom:1px solid var(--border);font-size:0.88em;color:var(--text-secondary);display:flex;align-items:center;gap:8px;">
+                            <span style="width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;display:inline-block;"></span>${comp}
+                        </li>`
+                    ).join('');
+                    document.getElementById('componentResults').style.display = 'block';
+                    document.getElementById('componentCheckmark').classList.add('visible');
+                }, 1500);
+            }, 500);
+
+            setTimeout(() => {
+                document.getElementById('check2Container').style.opacity = '1';
+                document.getElementById('workflowProgress').style.width = '100%';
+                setTimeout(() => {
+                    document.getElementById('workflowDiagram').textContent = generateWorkflow(submittedData.domain);
+                    document.getElementById('workflowResults').style.display = 'block';
+                    document.getElementById('workflowCheckmark').classList.add('visible');
+                }, 1500);
+            }, 3000);
+
+            setTimeout(() => {
+                document.getElementById('check3Container').style.opacity = '1';
+                document.getElementById('feasibilityProgress').style.width = '100%';
+                setTimeout(() => {
+                    const metrics = generateFeasibilityMetrics();
+                    const metricsHTML = Object.entries(metrics).map(([key, value]) =>
+                        `<div class="metric-tile">
+                            <div class="metric-label">${key}</div>
+                            <div class="metric-value" style="color:var(--green);">${value}%</div>
+                            <div class="metric-bar"><div class="progress-track"><div class="progress-fill green" style="width:${value}%"></div></div></div>
+                        </div>`
+                    ).join('');
+                    document.getElementById('feasibilityMetrics').innerHTML = metricsHTML;
+                    document.getElementById('feasibilityResults').style.display = 'block';
+                    document.getElementById('feasibilityCheckmark').classList.add('visible');
+                }, 1500);
+            }, 5500);
+
+            setTimeout(() => {
+                document.getElementById('check4Container').style.opacity = '1';
+                document.getElementById('costProgress').style.width = '100%';
+                setTimeout(() => {
+                    const costData = generateCostEstimate(submittedData.domain);
+                    const costHTML = `
+                        <h4 style="color:var(--green);margin-bottom:12px;font-size:0.95em;">Development Cost Estimate</h4>
+                        <p style="margin-bottom:10px;font-size:0.9em;"><strong>Total Estimated Cost:</strong> ${costData.total}</p>
+                        <div>
+                            ${costData.breakdown.map(item =>
+                                `<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.88em;">
+                                    <span style="color:var(--text-secondary);">${item.category}</span>
+                                    <span style="color:var(--green);font-weight:600;">${item.cost}</span>
+                                </div>`
+                            ).join('')}
+                        </div>
+                        <div style="margin-top:16px;padding:12px;background:var(--surface-2);border-radius:6px;border-left:3px solid var(--gold);font-size:0.88em;">
+                            <strong style="color:var(--gold);">Complexity Index:</strong>
+                            <span style="color:var(--slate);margin-left:8px;">${costData.complexity}</span>
+                        </div>
+                    `;
+                    document.getElementById('costBreakdown').innerHTML = costHTML;
+                    document.getElementById('costResults').style.display = 'block';
+                    document.getElementById('costCheckmark').classList.add('visible');
+                    showRiskAssessment();
+                }, 1500);
+            }, 8000);
+
+            setTimeout(() => { showValidationReport(); }, 11000);
+        }
+
+        function generateComponents(domain) {
+            const c = {
+                'agriculture':   ['IoT Sensors (soil moisture, temperature, humidity)', 'Microcontroller (ESP32/Arduino)', 'Water pump control system', 'Solar power supply unit', 'Mobile app interface', 'Cloud database for data logging', 'Alert notification system'],
+                'health':        ['Biosensors and monitoring devices', 'Data processing unit', 'Secure cloud storage (HIPAA compliant)', 'Mobile/Web application', 'Alert and notification system', 'Battery backup system', 'User authentication module'],
+                'manufacturing': ['Computer Vision cameras', 'AI/ML processing unit', 'Quality control sensors', 'Control system interface', 'Data analytics dashboard', 'Automated feedback mechanism', 'Network communication module'],
+                'education':     ['Content management system', 'User interface (Web/Mobile)', 'Video streaming infrastructure', 'Assessment and testing module', 'Progress tracking system', 'Cloud storage solution', 'Interactive learning tools'],
+                'energy':        ['Energy sensors and meters', 'Power management controller', 'Battery/Storage system', 'Monitoring dashboard', 'Grid integration module', 'Safety and protection circuits', 'Data logging system'],
+                'environment':   ['Environmental sensors (air quality, pollution)', 'Data collection unit', 'GPS/Location module', 'Cloud analytics platform', 'Visualization dashboard', 'Alert system', 'Mobile reporting app']
+            };
+            return c[domain] || c['agriculture'];
+        }
+
+        function generateWorkflow(domain) {
+            const w = {
+                'agriculture':   'Input -> [Sensors] -> Data Collection\n   |\nData Processing -> [Microcontroller]\n   |\nAnalysis -> [Cloud Server] -> AI Decision\n   |\nAction -> [Control System] -> Pump/Alert\n   |\nFeedback -> [Mobile App] -> User\n   |\nLoop Back to Monitoring',
+                'health':        'Patient Data -> [Sensors/Input]\n   |\nReal-time Monitoring -> [Processing Unit]\n   |\nData Analysis -> [Cloud System]\n   |\nAlert Generation -> [Notification System]\n   |\nHealthcare Provider -> [Dashboard]\n   |\nPatient Feedback Loop',
+                'manufacturing': 'Product Input -> [Vision System]\n   |\nQuality Check -> [AI Analysis]\n   |\nDefect Detection -> [Processing]\n   |\nDecision Making -> [Control System]\n   |\nAction (Accept/Reject) -> Output\n   |\nData Logging -> [Analytics]'
+            };
+            return w[domain] || w['agriculture'];
+        }
+
+        function generateFeasibilityMetrics() {
+            return { 'Technical': Math.floor(Math.random()*15)+85, 'Market': Math.floor(Math.random()*15)+80, 'Scalability': Math.floor(Math.random()*15)+75, 'Innovation': Math.floor(Math.random()*10)+90 };
+        }
+
+        function generateCostEstimate(domain) {
+            const costs = {
+                'agriculture':   { total: 'Rs. 45,000 - Rs. 65,000', complexity: '6/10 (Medium)', breakdown: [{ category: 'Hardware Components', cost: 'Rs. 25,000' }, { category: 'Software Development', cost: 'Rs. 15,000' }, { category: 'Testing & Validation', cost: 'Rs. 8,000' }, { category: 'Documentation', cost: 'Rs. 5,000' }, { category: 'Prototype Assembly', cost: 'Rs. 12,000' }] },
+                'health':        { total: 'Rs. 80,000 - Rs. 1,20,000', complexity: '8/10 (High)', breakdown: [{ category: 'Medical-grade Hardware', cost: 'Rs. 50,000' }, { category: 'Software Development', cost: 'Rs. 30,000' }, { category: 'Compliance & Testing', cost: 'Rs. 20,000' }, { category: 'Security Implementation', cost: 'Rs. 15,000' }, { category: 'Documentation', cost: 'Rs. 5,000' }] },
+                'manufacturing': { total: 'Rs. 1,00,000 - Rs. 1,50,000', complexity: '9/10 (High)', breakdown: [{ category: 'Vision Systems & Hardware', cost: 'Rs. 60,000' }, { category: 'AI/ML Development', cost: 'Rs. 40,000' }, { category: 'Integration & Testing', cost: 'Rs. 25,000' }, { category: 'Training Data Collection', cost: 'Rs. 15,000' }, { category: 'Documentation', cost: 'Rs. 10,000' }] }
+            };
+            return costs[domain] || costs['agriculture'];
+        }
+
+        function showRiskAssessment() {
+            const risks = [
+                { level: 'Low',    text: 'Component availability in domestic market' },
+                { level: 'Medium', text: 'Integration complexity with existing systems' },
+                { level: 'Low',    text: 'Technical skill requirements' },
+                { level: 'Medium', text: 'Time to market' }
+            ];
+            document.getElementById('riskContent').innerHTML = risks.map(r =>
+                `<div class="risk-row"><div class="risk-badge ${r.level.toLowerCase()}">${r.level}</div><div class="risk-text">${r.text}</div></div>`
+            ).join('');
+            document.getElementById('riskAssessment').style.display = 'block';
+        }
+
+        function showValidationReport() {
+            document.getElementById('overallScore').textContent = '87 / 100';
+            document.getElementById('summaryContent').innerHTML = `
+                <div class="data-row-bar green"><h4>All Components Available</h4><p>Required hardware and software components are readily available in the market</p></div>
+                <div class="data-row-bar blue"  style="margin-top:10px;"><h4>System Logic Validated</h4><p>Workflow is technically sound and follows industry best practices</p></div>
+                <div class="data-row-bar green" style="margin-top:10px;"><h4>Highly Feasible</h4><p>Strong scores across technical, market, and scalability parameters</p></div>
+                <div class="data-row-bar navy"  style="margin-top:10px;"><h4>Cost-Effective</h4><p>Development costs are within reasonable range for prototype stage</p></div>
+                <div class="data-row-bar gold"  style="margin-top:10px;"><h4>Recommended Next Steps</h4><p>Connect with mentors and secure funding to begin prototype development</p></div>
+            `;
+            document.getElementById('validationReport').style.display = 'block';
+            setTimeout(() => { document.getElementById('validationReport').scrollIntoView({ behavior: 'smooth' }); }, 500);
+        }
+
+        function proceedToMentorship() {
+            document.getElementById('virtualLabScreen').style.display = 'none';
+            document.getElementById('mentorshipScreen').style.display = 'block';
+            window.scrollTo(0, 0);
+            startMentorshipMatching();
+        }
+
+        function startMentorshipMatching() {
+            const steps = ['Analyzing your domain expertise needs...', 'Searching mentor database...', 'Matching with industry experts...', 'Finding incubator programs...', 'Identifying funding opportunities...', 'Finalizing connections...'];
+            let i = 0;
+            document.getElementById('matchProgress').style.width = '100%';
+            const interval = setInterval(() => {
+                if (i < steps.length) { document.getElementById('matchingText').textContent = steps[i]; i++; }
+                else { clearInterval(interval); showMentorshipResults(); }
+            }, 800);
+        }
+
+        function showMentorshipResults() {
+            setTimeout(() => {
+                document.getElementById('connectionProgress').style.display = 'none';
+                displayMentors(); document.getElementById('mentorsSection').style.display = 'block';
+                setTimeout(() => { displayExperts(); document.getElementById('expertsSection').style.display = 'block'; }, 1000);
+                setTimeout(() => { displayIncubators(); document.getElementById('incubatorsSection').style.display = 'block'; }, 2000);
+                setTimeout(() => { displayFunding(); document.getElementById('fundingSection').style.display = 'block'; }, 3000);
+                setTimeout(() => { document.getElementById('developmentRoadmap').style.display = 'block'; }, 4000);
+                setTimeout(() => {
+                    document.getElementById('mentorNextSteps').innerHTML = [
+                        'Mentor introductions will be sent to your email within 24 hours',
+                        'Industry expert meetings will be scheduled based on availability',
+                        'Incubator application guidance will be provided',
+                        'Funding application support will begin immediately'
+                    ].map(s => `<div class="next-step-item"><div class="next-step-dot"></div><span>${s}</span></div>`).join('');
+                    document.getElementById('successSummary').style.display = 'block';
+                    document.getElementById('successSummary').scrollIntoView({ behavior: 'smooth' });
+                }, 5000);
+            }, 500);
+        }
+
+        function getInitials(name) {
+            return name.split(' ').filter(Boolean).map(w => w[0]).join('').substring(0, 2).toUpperCase();
+        }
+
+        function displayMentors() {
+            const mentorData = {
+                'agriculture':   [{ name: 'Dr. Rajesh Kumar', role: 'Agricultural Engineering Professor', institution: 'IIT Delhi', expertise: 'IoT in Agriculture, Smart Farming', experience: '15+ years' }, { name: 'Prof. Anita Sharma', role: 'Irrigation Systems Expert', institution: 'IARI New Delhi', expertise: 'Water Management, Precision Agriculture', experience: '12+ years' }],
+                'health':        [{ name: 'Dr. Priya Mehta', role: 'Biomedical Engineering Professor', institution: 'AIIMS Delhi', expertise: 'Medical Devices, Telemedicine', experience: '18+ years' }, { name: 'Dr. Arun Patel', role: 'Healthcare Technology Expert', institution: 'IIT Bombay', expertise: 'Healthcare AI, Patient Monitoring', experience: '14+ years' }],
+                'manufacturing': [{ name: 'Prof. Suresh Reddy', role: 'Manufacturing Systems Professor', institution: 'IIT Madras', expertise: 'Quality Control, Automation', experience: '20+ years' }, { name: 'Dr. Kavita Singh', role: 'Industrial Engineering Expert', institution: 'NIT Trichy', expertise: 'Computer Vision, AI in Manufacturing', experience: '16+ years' }]
+            };
+            const mentors = mentorData[submittedData.domain] || mentorData['agriculture'];
+            document.getElementById('mentorsList').innerHTML = mentors.map(m => `
+                <div class="person-card">
+                    <div class="person-avatar">${getInitials(m.name)}</div>
+                    <h4>${m.name}</h4>
+                    <div class="person-role">${m.role}</div>
+                    <div class="person-meta">
+                        <div><strong>Institution:</strong> ${m.institution}</div>
+                        <div><strong>Expertise:</strong> ${m.expertise}</div>
+                        <div style="margin-bottom:14px;"><strong>Experience:</strong> ${m.experience}</div>
+                    </div>
+                    <button onclick="alert('Connection request sent to ${m.name}. You will receive an introduction email within 24 hours.')" class="action-btn" style="width:100%;padding:9px;font-size:0.85em;">Connect</button>
+                </div>
+            `).join('');
+        }
+
+        function displayExperts() {
+            const expertData = {
+                'agriculture':   [{ name: 'Mr. Vikram Desai', company: 'Jain Irrigation Systems', role: 'Head of Innovation', expertise: 'Drip Irrigation, IoT Solutions' }, { name: 'Ms. Sunita Rao', company: 'Mahindra Agri Solutions', role: 'Senior Product Manager', expertise: 'Farm Automation, Smart Sensors' }],
+                'health':        [{ name: 'Dr. Ramesh Gupta', company: 'Apollo Hospitals', role: 'Chief Innovation Officer', expertise: 'Healthcare Tech, Digital Health' }, { name: 'Ms. Neha Kapoor', company: 'Fortis Healthcare', role: 'Director - Medical Technology', expertise: 'Patient Care Systems, Monitoring' }],
+                'manufacturing': [{ name: 'Mr. Ashok Malhotra', company: 'Tata Steel', role: 'VP - Technology Innovation', expertise: 'Quality Systems, AI/ML' }, { name: 'Dr. Sanjay Verma', company: 'Larsen & Toubro', role: 'Head of Automation', expertise: 'Industrial Automation, Vision Systems' }]
+            };
+            const experts = expertData[submittedData.domain] || expertData['agriculture'];
+            document.getElementById('expertsList').innerHTML = experts.map(e => `
+                <div class="person-card">
+                    <div class="person-avatar" style="background:var(--teal);">${getInitials(e.name)}</div>
+                    <h4>${e.name}</h4>
+                    <div class="person-role" style="color:var(--teal);">${e.role}</div>
+                    <div class="person-meta">
+                        <div><strong>Company:</strong> ${e.company}</div>
+                        <div style="margin-bottom:14px;"><strong>Expertise:</strong> ${e.expertise}</div>
+                    </div>
+                    <button onclick="alert('Meeting request sent to ${e.name}. Scheduling in progress.')" class="action-btn" style="width:100%;padding:9px;font-size:0.85em;background:var(--teal);">Request Meeting</button>
+                </div>
+            `).join('');
+        }
+
+        function displayIncubators() {
+            const incubators = [
+                { name: 'Atal Incubation Centre', location: 'Multiple Locations', focus: 'Deep Tech, IoT', support: 'Seed Funding, Workspace, Mentorship', funding: 'Rs. 25 lakhs seed funding' },
+                { name: 'T-Hub', location: 'Hyderabad', focus: 'Technology Startups', support: 'Infrastructure, Market Access', funding: 'Up to Rs. 50 lakhs' },
+                { name: 'NSRCEL IIM Bangalore', location: 'Bangalore', focus: 'Social Impact, Innovation', support: 'Mentorship, Network, Resources', funding: 'Rs. 10-30 lakhs' }
+            ];
+            document.getElementById('incubatorsList').innerHTML = incubators.map(inc => `
+                <div class="person-card">
+                    <div class="person-avatar" style="background:var(--gold);border-radius:8px;">${inc.name.substring(0,2).toUpperCase()}</div>
+                    <h4>${inc.name}</h4>
+                    <div class="person-meta">
+                        <div><strong>Location:</strong> ${inc.location}</div>
+                        <div><strong>Focus:</strong> ${inc.focus}</div>
+                        <div><strong>Support:</strong> ${inc.support}</div>
+                        <div style="margin-bottom:14px;color:var(--green);font-weight:600;"><strong style="color:var(--text-primary);">Funding:</strong> ${inc.funding}</div>
+                    </div>
+                    <button onclick="alert('Application initiated for ${inc.name}. Our team will help you with the application process.')" class="action-btn success" style="width:100%;padding:9px;font-size:0.85em;">Apply Now</button>
+                </div>
+            `).join('');
+        }
+
+        function displayFunding() {
+            const funding = [
+                { name: 'Startup India Seed Fund', amount: 'Rs. 20 lakhs', type: 'Government Grant', eligibility: 'Early-stage startups', timeline: '3-6 months' },
+                { name: 'BIRAC BIG Scheme', amount: 'Up to Rs. 50 lakhs', type: 'Grant', eligibility: 'Biotech/Health innovations', timeline: '4-8 months' },
+                { name: 'DST-NIDHI PRAYAS', amount: 'Rs. 10 lakhs', type: 'Prototype Funding', eligibility: 'Students & Young Innovators', timeline: '2-4 months' },
+                { name: 'NSTEDB CHUNAUTI', amount: 'Rs. 15-50 lakhs', type: 'Grant', eligibility: 'Technology Solutions', timeline: '3-6 months' }
+            ];
+            document.getElementById('fundingList').innerHTML = funding.map(f => `
+                <div class="person-card">
+                    <div class="person-avatar" style="background:var(--green);border-radius:8px;">${f.name.substring(0,2).toUpperCase()}</div>
+                    <h4>${f.name}</h4>
+                    <div style="font-size:1.1em;font-weight:700;color:var(--green);margin-bottom:10px;">${f.amount}</div>
+                    <div class="person-meta">
+                        <div><strong>Type:</strong> ${f.type}</div>
+                        <div><strong>Eligibility:</strong> ${f.eligibility}</div>
+                        <div style="margin-bottom:14px;"><strong>Timeline:</strong> ${f.timeline}</div>
+                    </div>
+                    <button onclick="alert('Application support initiated for ${f.name}. Our team will guide you through the process.')" class="action-btn success" style="width:100%;padding:9px;font-size:0.85em;">Get Application Support</button>
+                </div>
+            `).join('');
+        }
+
+        function proceedToPatent() {
+            document.getElementById('mentorshipScreen').style.display = 'none';
+            document.getElementById('patentScreen').style.display = 'block';
+            window.scrollTo(0, 0);
+            startPatentAnalysis();
+        }
+
+        function startPatentAnalysis() {
+            const steps = ['Analyzing technical structure...', 'Evaluating novelty...', 'Assessing industry relevance...', 'Determining patent category...', 'Preparing recommendations...'];
+            let i = 0;
+            document.getElementById('patentAnalysisProgress').style.width = '100%';
+            const interval = setInterval(() => {
+                if (i < steps.length) { document.getElementById('analysisText').textContent = steps[i]; i++; }
+                else { clearInterval(interval); showPatentResults(); }
+            }, 800);
+        }
+
+        function showPatentResults() {
+            setTimeout(() => {
+                document.getElementById('patentAnalysis').style.display = 'none';
+                displayPatentCategory();
+                document.getElementById('patentCategory').style.display = 'block';
+                setTimeout(() => { document.getElementById('noveltyCheck').style.display = 'block'; }, 1500);
+                setTimeout(() => { document.getElementById('draftingGuidance').style.display = 'block'; }, 3000);
+                setTimeout(() => { document.getElementById('filingPathway').style.display = 'block'; }, 4500);
+                setTimeout(() => { document.getElementById('supportServices').style.display = 'block'; }, 6000);
+                setTimeout(() => {
+                    document.getElementById('patentSuccess').style.display = 'block';
+                    document.getElementById('patentSuccess').scrollIntoView({ behavior: 'smooth' });
+                }, 7500);
+            }, 500);
+        }
+
+        function displayPatentCategory() {
+            const categories = {
+                'agriculture':   { title: 'Agricultural Technology Patent', description: 'Your innovation qualifies for protection under agricultural technology patents, covering IoT-based smart farming solutions, irrigation systems, and agricultural automation.', details: { 'Class': 'A01G - Horticulture; Cultivation of vegetables, flowers, rice, fruit, vines', 'Subclass': 'A01G 25/16 - Control of watering', 'Technology Area': 'Smart Agriculture, IoT Sensors, Automated Irrigation', 'Protection Scope': 'Device, System, and Method claims possible' } },
+                'health':        { title: 'Medical Device / Healthcare Technology Patent', description: 'Your innovation qualifies for medical device patent protection, covering healthcare monitoring systems, diagnostic tools, and patient care technologies.', details: { 'Class': 'A61B - Diagnosis; Surgery; Identification', 'Subclass': 'A61B 5/00 - Measuring for diagnostic purposes', 'Technology Area': 'Healthcare IoT, Patient Monitoring, Telemedicine', 'Protection Scope': 'Apparatus, System, and Method claims possible' } },
+                'manufacturing': { title: 'Manufacturing Process / Automation Patent', description: 'Your innovation qualifies for industrial automation patent protection, covering quality control systems, computer vision applications, and manufacturing processes.', details: { 'Class': 'G06T - Image data processing or generation', 'Subclass': 'G06T 7/00 - Image analysis for quality control', 'Technology Area': 'Computer Vision, AI/ML, Quality Control Automation', 'Protection Scope': 'System, Method, and Software claims possible' } },
+                'education':     { title: 'Educational Technology Patent', description: 'Your innovation qualifies for educational technology patent protection, covering e-learning systems, adaptive learning platforms, and educational tools.', details: { 'Class': 'G09B - Educational or demonstration appliances', 'Subclass': 'G09B 5/00 - Electrically-operated teaching apparatus', 'Technology Area': 'E-learning, Adaptive Systems, Digital Education', 'Protection Scope': 'System, Method, and Software claims possible' } },
+                'energy':        { title: 'Energy Technology Patent', description: 'Your innovation qualifies for renewable energy patent protection, covering energy management systems, power optimization, and sustainable energy solutions.', details: { 'Class': 'H02J - Circuit arrangements for AC or DC power supply', 'Subclass': 'H02J 3/00 - Circuit arrangements for AC mains or distribution', 'Technology Area': 'Energy Management, Smart Grid, Renewable Energy', 'Protection Scope': 'System, Device, and Method claims possible' } },
+                'environment':   { title: 'Environmental Technology Patent', description: 'Your innovation qualifies for environmental technology patent protection, covering pollution monitoring, waste management, and environmental sensing systems.', details: { 'Class': 'G01N - Investigating or analyzing materials', 'Subclass': 'G01N 33/00 - Investigating materials by specific methods', 'Technology Area': 'Environmental Monitoring, Pollution Detection, Data Analytics', 'Protection Scope': 'System, Method, and Apparatus claims possible' } }
+            };
+            const cat = categories[submittedData.domain] || categories['agriculture'];
+            document.getElementById('patentCategoryTitle').textContent = cat.title;
+            document.getElementById('patentCategoryDesc').textContent = cat.description;
+            document.getElementById('categoryDetails').innerHTML = Object.entries(cat.details).map(([k, v]) =>
+                `<div style="padding:10px 0;border-bottom:1px solid var(--border);font-size:0.88em;">
+                    <strong style="color:var(--slate);">${k}:</strong>
+                    <span style="color:var(--text-secondary);margin-left:8px;">${v}</span>
+                </div>`
+            ).join('');
+        }
+
+        function proceedToCommercialize() {
+            document.getElementById('patentScreen').style.display = 'none';
+            document.getElementById('commercializationScreen').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        let selectedCommercializationPath = null;
+
+        function selectPath(pathType) {
+            selectedCommercializationPath = pathType;
+            document.getElementById('pathA').classList.remove('selected');
+            document.getElementById('pathB').classList.remove('selected');
+            if (pathType === 'industry') document.getElementById('pathA').classList.add('selected');
+            else document.getElementById('pathB').classList.add('selected');
+            document.getElementById('pathDetails').style.display = 'block';
+            document.getElementById('industryDetails').style.display = pathType === 'industry' ? 'block' : 'none';
+            document.getElementById('startupDetails').style.display = pathType === 'startup' ? 'block' : 'none';
+            setTimeout(() => { document.getElementById('pathDetails').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+        }
+
+        function confirmPath() {
+            if (!selectedCommercializationPath) { alert('Please select a path first.'); return; }
+            const pathName = selectedCommercializationPath === 'industry' ? 'Industry Adoption' : 'Startup Creation';
+            alert(`Congratulations!\n\nYou have selected the ${pathName} path.\n\nYour application has been submitted to our commercialization team.\n\nYou will receive an email within 48 hours with:\n- Next steps and timeline\n- Assigned mentor contact\n- Resource package specific to your path\n- Initial consultation scheduling`);
+            document.getElementById('commercializationScreen').style.display = 'none';
+            document.getElementById('innovationForm').reset();
+            selectedCommercializationPath = null;
+            window.scrollTo(0, 0);
+        }
+
+        function goBackToPatent() {
+            document.getElementById('commercializationScreen').style.display = 'none';
+            document.getElementById('patentScreen').style.display = 'block';
+            document.getElementById('pathDetails').style.display = 'none';
+            selectedCommercializationPath = null;
+            window.scrollTo(0, 0);
+        }
+
+        /* ── CTA scroll ── */
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#submit').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        /* ── Scroll-reveal for stages ── */
+        const stages = document.querySelectorAll('.stage');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(12px)';
+                    setTimeout(() => {
+                        entry.target.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 80);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+        stages.forEach(s => observer.observe(s));
+
+        /* ── Responsive path grid ── */
+        function checkPathGrid() {
+            const grid = document.querySelector('.path-grid');
+            if (grid) grid.style.gridTemplateColumns = window.innerWidth < 640 ? '1fr' : '1fr 1fr';
+        }
+        window.addEventListener('resize', checkPathGrid);
+        checkPathGrid();
+
+        /* =====================================================
+           AUTH & USER MANAGEMENT
+        ===================================================== */
+        function getUsers() {
+            try { return JSON.parse(localStorage.getItem('yuva_users') || '[]'); } catch { return []; }
+        }
+        function saveUsers(users) { localStorage.setItem('yuva_users', JSON.stringify(users)); }
+        function getCurrentUser() {
+            try { return JSON.parse(localStorage.getItem('yuva_current_user') || 'null'); } catch { return null; }
+        }
+        function saveCurrentUser(user) { localStorage.setItem('yuva_current_user', JSON.stringify(user)); }
+
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+            clearModalMessages(id);
+        }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+        function switchModal(from, to) { closeModal(from); openModal(to); }
+        function clearModalMessages(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.querySelectorAll('.modal-error,.modal-success').forEach(e => { e.style.display='none'; e.textContent=''; });
+        }
+
+        function showModalMsg(id, type, msg) {
+            const el = document.getElementById(id);
+            el.textContent = msg;
+            el.style.display = 'block';
+        }
+
+        function doLogin() {
+            const email = document.getElementById('loginEmail').value.trim();
+            const pass = document.getElementById('loginPassword').value;
+            clearModalMessages('loginModal');
+            if (!email || !pass) { showModalMsg('loginError','error','Please fill in all fields.'); return; }
+            const users = getUsers();
+            const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+            if (!user) { showModalMsg('loginError','error','No account found with this email. Please sign up first.'); return; }
+            if (user.password !== pass) { showModalMsg('loginError','error','Invalid email or password. Please try again or sign up.'); return; }
+            saveCurrentUser(user);
+            showModalMsg('loginSuccess','success','Login successful! Welcome back, ' + user.fullName.split(' ')[0] + '!');
+            setTimeout(() => { closeModal('loginModal'); updateAuthHeader(user); }, 1000);
+        }
+
+        function doSignup() {
+            const name = document.getElementById('signupName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const pass = document.getElementById('signupPassword').value;
+            const confirm = document.getElementById('signupConfirm').value;
+            const inst = document.getElementById('signupInstitution').value.trim();
+            const phone = document.getElementById('signupPhone').value.trim();
+            const dob = document.getElementById('signupDob').value;
+            const terms = document.getElementById('signupTerms').checked;
+            clearModalMessages('signupModal');
+            if (!name || !email || !pass || !confirm) { showModalMsg('signupError','error','Please fill in all required fields.'); return; }
+            if (pass.length < 6) { showModalMsg('signupError','error','Password must be at least 6 characters.'); return; }
+            if (pass !== confirm) { showModalMsg('signupError','error','Passwords do not match.'); return; }
+            if (!terms) { showModalMsg('signupError','error','Please accept the Terms & Conditions.'); return; }
+            const users = getUsers();
+            if (users.find(u => u.email.toLowerCase() === email.toLowerCase())) {
+                showModalMsg('signupError','error','Email already registered. Please login instead.'); return;
+            }
+            const newUser = {
+                id: 'user_' + Date.now(),
+                fullName: name, email, password: pass,
+                institution: inst, phone, dob,
+                createdAt: new Date().toISOString(),
+                submissions: []
+            };
+            users.push(newUser);
+            saveUsers(users);
+            saveCurrentUser(newUser);
+            showModalMsg('signupSuccess','success','Account created! Welcome to YUVA R&D, ' + name.split(' ')[0] + '!');
+            setTimeout(() => { closeModal('signupModal'); updateAuthHeader(newUser); }, 1000);
+        }
+
+        function logout() {
+            localStorage.removeItem('yuva_current_user');
+            updateAuthHeader(null);
+        }
+
+        function updateAuthHeader(user) {
+            const authDiv = document.getElementById('headerAuth');
+            const userDiv = document.getElementById('userInfo');
+            const loginNotice = document.getElementById('loginNotice');
+            if (user) {
+                authDiv.style.display = 'none';
+                userDiv.style.display = 'flex';
+                document.getElementById('userAvatarHeader').textContent = user.fullName.charAt(0).toUpperCase();
+                document.getElementById('userNameHeader').textContent = user.fullName.split(' ')[0];
+                if (loginNotice) loginNotice.style.display = 'none';
+            } else {
+                authDiv.style.display = 'flex';
+                userDiv.style.display = 'none';
+                if (loginNotice) loginNotice.style.display = 'block';
+            }
+        }
+
+        function forgotPassword() {
+            alert('Password reset link sent to your email!\n\n(This is a simulation — in production, a real reset email would be sent.)');
+        }
+
+        // Session restore on page load
+        (function restoreSession() {
+            const user = getCurrentUser();
+            updateAuthHeader(user);
+            // Show login notice if not logged in
+            const notice = document.getElementById('loginNotice');
+            if (notice && !user) notice.style.display = 'block';
+        })();
+
+        // Override form submit to link with user account
+        const origFormSubmit = document.getElementById('innovationForm').onsubmit;
+        document.getElementById('innovationForm').addEventListener('submit', function(e) {
+            // Submission association happens in the existing handleSubmit flow
+            // We patch submittedData after the fact
+        });
+
+        // Patch handleSubmit to associate submission with user
+        const _origHandleSubmit = window.handleSubmit;
+        document.getElementById('innovationForm').addEventListener('submit', function() {
+            // After a tick let submittedData be set, then link to user
+            setTimeout(() => {
+                const user = getCurrentUser();
+                if (user && window.submittedData) {
+                    const users = getUsers();
+                    const idx = users.findIndex(u => u.id === user.id);
+                    if (idx !== -1) {
+                        const sub = {
+                            id: 'sub_' + Date.now(),
+                            name: window.submittedData.name,
+                            domain: window.submittedData.domain,
+                            problem: window.submittedData.problem,
+                            submittedAt: new Date().toISOString(),
+                            status: 'submitted'
+                        };
+                        users[idx].submissions.push(sub);
+                        saveUsers(users);
+                        users[idx]; // ref
+                        saveCurrentUser(users[idx]);
+                    }
+                }
+            }, 200);
+        }, true);
+
+        /* ── Dashboard ── */
+        function openDashboard() {
+            const user = getCurrentUser();
+            if (!user) return;
+            const el = document.getElementById('dashboardOverlay');
+            el.classList.add('active');
+            // Profile
+            document.getElementById('dashProfileCard').innerHTML = `
+                <div class="profile-avatar-lg">${user.fullName.charAt(0).toUpperCase()}</div>
+                <div class="profile-info">
+                    <h3>${user.fullName}</h3>
+                    <p>${user.email}</p>
+                    ${user.institution ? `<p style="margin-top:4px;color:var(--accent);">${user.institution}</p>` : ''}
+                    <p style="margin-top:4px;font-size:0.8em;color:var(--text-muted);">Member since ${new Date(user.createdAt).toLocaleDateString('en-IN', {year:'numeric',month:'long'})}</p>
+                </div>`;
+            // Submissions
+            const subs = user.submissions || [];
+            const subsEl = document.getElementById('dashSubmissions');
+            if (subs.length === 0) {
+                subsEl.innerHTML = `<div style="text-align:center;padding:40px;color:var(--text-muted);">
+                    <div style="font-size:2.5em;margin-bottom:12px;">🔬</div>
+                    <p>No innovations submitted yet.</p>
+                    <p style="font-size:0.88em;margin-top:6px;">Submit your first innovation to begin the pipeline!</p>
+                </div>`;
+            } else {
+                subsEl.innerHTML = subs.map(s => `
+                    <div class="submission-card">
+                        <div class="submission-card-header">
+                            <h4>💡 ${s.name || 'Innovation'} — ${s.domain || 'General'}</h4>
+                            <span class="status-badge submitted">${s.status || 'Submitted'}</span>
+                        </div>
+                        <p>${s.problem ? s.problem.substring(0,120) + (s.problem.length > 120 ? '...' : '') : ''}</p>
+                        <p style="font-size:0.78em;color:var(--text-muted);margin-top:6px;">Submitted: ${new Date(s.submittedAt).toLocaleDateString('en-IN')}</p>
+                    </div>`).join('');
+            }
+        }
+        function closeDashboard() { document.getElementById('dashboardOverlay').classList.remove('active'); }
+
+        /* =====================================================
+           CHATBOT
+        ===================================================== */
+        const chatQA = {
+            "what is yuva r&d": "YUVA R&D is a National Youth Innovation Pipeline that transforms student ideas into indigenous technologies. It provides a structured 6-stage journey: Idea Submission, AI Industry Matching, Virtual Lab Validation, Mentorship & Funding, Patent Filing, and Commercialization/Startup creation under the Viksit Bharat 2047 initiative.",
+            "who can use yuva": "Any student or young innovator in India (age 16-30) can use YUVA R&D. You can be from any institution - college, university, school, or independent researcher. We're building India's technological sovereignty through youth innovation.",
+            "viksit bharat": "Viksit Bharat 2047 is India's vision to become a developed nation by 2047 (100 years of independence). YUVA R&D contributes by building indigenous technologies, strengthening domestic industries, and creating technological sovereignty through youth-led innovation.",
+            "is it free": "Yes, YUVA R&D is completely free for students and young innovators. We are a government-backed initiative with no hidden costs. All services including AI matching, mentorship matching, and patent guidance are provided at no charge.",
+            "free": "Yes, YUVA R&D is completely free for students and young innovators. We are a government-backed initiative with no hidden costs. All services including AI matching, mentorship matching, and patent guidance are provided at no charge.",
+            "domains are accepted": "We accept innovations in: 🌾 Agriculture, 🏥 Healthcare, 🏭 Manufacturing, 📚 Education, ⚡ Energy, 🌿 Environment, 💻 Technology, and other domains. Each domain has dedicated mentors, industry partners, and patent pathways.",
+            "how long does": "The complete pipeline typically takes 6-12 months: AI Matching (1-2 days), Virtual Lab (1-2 weeks), Mentorship & Prototyping (3-4 months), Patent Filing (6-8 months), Commercialization (3-6 months). Timelines vary based on innovation complexity and your pace.",
+            "how do i submit": "To submit your innovation: 1) Scroll down to 'Submit Your Innovation' section, 2) Fill in your name, email, institution, domain, 3) Describe the problem you want to solve, 4) Explain your proposed solution, 5) Click 'Submit Innovation'. Your journey then begins with AI Industry Matching!",
+            "how to submit": "To submit your innovation: 1) Scroll down to 'Submit Your Innovation' section, 2) Fill in your name, email, institution, domain, 3) Describe the problem you want to solve, 4) Explain your proposed solution, 5) Click 'Submit Innovation'.",
+            "need a prototype": "No, you can submit an idea at any stage - even a rough concept! Our Virtual Lab Validation stage helps you assess feasibility and identify required components before you build anything physical. We guide you from concept to working prototype.",
+            "what information do i need": "You'll need: Full name, Email address, Institution/Organization name, Domain (select from dropdown), Problem statement (what issue are you solving?), Proposed solution (how does your innovation work?). That's it - we guide you through the rest!",
+            "multiple innovations": "Yes, you can submit multiple innovations! Each submission goes through its own pipeline journey. Use the same email address to track all your submissions in one place.",
+            "what happens after": "After submission, you'll enter the AI Industry Matching stage where our AI analyzes your idea, matches it with real industry challenges, and transforms it into a problem-driven solution. You'll see this process on screen immediately after submission.",
+            "ai industry matching": "Stage 2: AI Industry Matching uses advanced NLP to analyze your idea, searches our database of industry challenges, and matches your solution to real-world needs. It transforms your raw idea into an economically relevant, problem-driven innovation with identified industry partners.",
+            "virtual lab": "Stage 3: Virtual Lab performs digital prototyping including: component requirements analysis, system workflow validation, feasibility assessment (technical, market, scalability), and cost/complexity estimation. It validates your idea before any physical investment.",
+            "mentorship": "Stage 4 connects you with: domain experts and professors, industry mentors from top companies, incubator partnerships (AIC, T-Hub, NSRCEL), and funding opportunities (Startup India Seed Fund, BIRAC, DST-NIDHI, NSTEDB). We match you based on your domain and needs.",
+            "patent": "Stage 5 guides you through: patent category suggestion (based on your domain), drafting guidance for complete specification, filing pathway assistance (provisional → complete → examination → grant), and IP protection strategy with attorney connections.",
+            "patent filing": "Step-by-step: 1) Provisional Application (₹1,600, secures filing date, 12-month validity), 2) Complete Specification (within 12 months, detailed claims), 3) Examination Request (₹8,000, within 48 months), 4) Patent Grant (2-3 years, 20-year protection).",
+            "commerciali": "Stage 6 offers two paths: Path A - Industry Adoption (license your technology to established companies for royalties) OR Path B - Startup Creation (build your own company). Both paths include business guidance, investor connections, and go-to-market strategy support.",
+            "funding": "Yes! Stage 4 connects you with multiple funding sources: Startup India Seed Fund (₹20 lakhs), BIRAC BIG Scheme (up to ₹50 lakhs for biotech/health), DST-NIDHI PRAYAS (₹10 lakhs for prototypes), NSTEDB CHUNAUTI (₹15-50 lakhs for tech solutions).",
+            "how much": "Funding ranges from ₹10 lakhs to ₹50 lakhs depending on the scheme and your innovation stage. Early prototypes can get ₹10-15 lakhs, while advanced innovations with market potential can access up to ₹50 lakhs.",
+            "patent costs": "Patent costs (individual rates): Provisional Application ₹1,600, Complete Specification ₹8,000, Examination Request ₹8,000. Total ~₹17,600. YUVA R&D provides drafting guidance free of cost. Fee concessions available for students and startups.",
+            "hidden charges": "None. YUVA R&D is completely free. Any third-party costs (patent filing fees, prototype components) are transparently disclosed upfront. We never charge for mentorship, matching, or guidance services.",
+            "pay back": "Most funding we connect you with are grants (non-repayable) - like Startup India Seed Fund, BIRAC, DST-NIDHI. Some incubators may offer equity-based investment (you give a small percentage of your company).",
+            "get a mentor": "After completing Virtual Lab Validation, you'll enter the Mentorship & Funding screen. Our system automatically matches you with domain experts (professors), industry mentors (company leaders), and incubator partners based on your innovation domain.",
+            "who are the mentors": "Our mentors include: IIT/NIT professors in your domain, industry experts from companies like Tata, Mahindra, Apollo, Jain Irrigation, incubator leaders from AIC, T-Hub, NSRCEL, and successful startup founders. All are vetted experts with 10+ years experience.",
+            "choose my mentor": "Our AI suggests the best-matched mentors based on your specific innovation. You can request connections with any suggested mentor. If you have a specific expert in mind, you can request them and we'll facilitate the introduction.",
+            "incubator": "Incubators offer: workspace (physical/virtual), seed funding (₹10-50 lakhs), mentorship, legal/accounting support, access to labs and equipment, investor connections, market access, and networking events.",
+            "start a company": "Absolutely! Path B - Startup Creation helps you: register your company (Startup India, DPIIT), develop business model, raise investment, build team, and launch product. We provide investor connections, incubator support, and go-to-market strategy guidance.",
+            "industry adoption": "Path A - Industry Adoption means licensing your technology to established companies. Benefits: faster market penetration, royalty-based revenue (2-5% of sales), no need to build a company, access to existing distribution channels, reduced business risk.",
+            "royalty": "Typical royalty rates: 2-5% of net sales for hardware innovations, 5-10% for software/IP, or upfront fixed fees ranging from ₹5-50 lakhs depending on the technology maturity and market size. We help negotiate fair terms.",
+            "job opportunities": "YUVA R&D creates: R&D roles in industry, startup employment opportunities, patent filing and IP management careers, technical consulting positions, and innovation leadership pathways. Alumni have joined Tata, Infosys, and started successful ventures.",
+        };
+
+        const chatCategories = {
+            general: ["What is YUVA R&D?", "Who can use this?", "Is it free?"],
+            submission: ["How to submit?", "Do I need a prototype?", "What happens after?"],
+            pipeline: ["AI Matching stage?", "Virtual Lab?", "Patent stage?"],
+            funding: ["Funding options?", "Patent costs?", "How much money?"],
+            mentorship: ["Get a mentor?", "Who are mentors?", "Incubator support?"],
+            commercialization: ["Start a company?", "Industry adoption?", "Royalty rates?"]
+        };
+
+        let chatInitialized = false;
+        let currentChatCategory = 'general';
+
+        function toggleChat() {
+            const win = document.getElementById('chatWindow');
+            const openIcon = document.getElementById('chatOpenIcon');
+            const closeIcon = document.getElementById('chatCloseIcon');
+            const isOpen = win.classList.contains('open');
+            win.classList.toggle('open');
+            openIcon.style.display = isOpen ? 'block' : 'none';
+            closeIcon.style.display = isOpen ? 'none' : 'block';
+            if (!chatInitialized) { chatInitialized = true; initChat(); }
+        }
+
+        function initChat() {
+            const welcome = `**Namaste! I'm YUVA Assistant**\n\nYour guide to the National Youth Innovation Pipeline. Ask me about:\n•  Submitting your innovation\n•  AI Industry Matching & Virtual Lab\n•  Funding opportunities (₹10-50 lakhs)\n•  Patent filing & IP protection\n•  Mentorship & expert guidance\n•  Starting your company or licensing\n\nType your question below or tap a quick reply!`;
+            appendBotMessage(welcome);
+            renderQRQuestions('general');
+        }
+
+        function setChatCategory(cat) {
+            currentChatCategory = cat;
+            document.querySelectorAll('.qr-category-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            renderQRQuestions(cat);
+        }
+
+        function renderQRQuestions(cat) {
+            const container = document.getElementById('chatQRQuestions');
+            const qs = chatCategories[cat] || [];
+            container.innerHTML = qs.map(q => `<button class="qr-question-btn" onclick="sendQuickReply('${q}')">${q}</button>`).join('');
+        }
+
+        function sendQuickReply(q) {
+            document.getElementById('chatInput').value = q;
+            sendChatMessage();
+        }
+
+        function appendBotMessage(text) {
+            const msgs = document.getElementById('chatMessages');
+            const div = document.createElement('div');
+            div.className = 'chat-msg bot';
+            const formatted = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+            div.innerHTML = `<div class="chat-bubble">${formatted}</div><div class="chat-ts">${getTime()}</div>`;
+            msgs.appendChild(div);
+            msgs.scrollTop = msgs.scrollHeight;
+        }
+
+        function appendUserMessage(text) {
+            const msgs = document.getElementById('chatMessages');
+            const div = document.createElement('div');
+            div.className = 'chat-msg user';
+            div.innerHTML = `<div class="chat-bubble">${escapeHtml(text)}</div><div class="chat-ts">${getTime()}</div>`;
+            msgs.appendChild(div);
+            msgs.scrollTop = msgs.scrollHeight;
+        }
+
+        function showTyping() {
+            const msgs = document.getElementById('chatMessages');
+            const div = document.createElement('div');
+            div.className = 'chat-msg bot';
+            div.id = 'typingIndicator';
+            div.innerHTML = `<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
+            msgs.appendChild(div);
+            msgs.scrollTop = msgs.scrollHeight;
+        }
+
+        function removeTyping() {
+            const t = document.getElementById('typingIndicator');
+            if (t) t.remove();
+        }
+
+        function getBotResponse(text) {
+            const lower = text.toLowerCase();
+            for (const [key, val] of Object.entries(chatQA)) {
+                if (lower.includes(key)) return val;
+            }
+            return "That's a great question! I may not have a specific answer, but I'm here to help. You can ask me about the submission process, AI matching, Virtual Lab, funding options (₹10-50 lakhs), patent filing, mentorship, or commercialization paths. Or scroll down to submit your innovation directly!";
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const text = input.value.trim();
+            if (!text) return;
+            input.value = '';
+            appendUserMessage(text);
+            showTyping();
+            const delay = 300 + Math.random() * 500;
+            setTimeout(() => {
+                removeTyping();
+                appendBotMessage(getBotResponse(text));
+            }, delay);
+        }
+
+        function getTime() {
+            const now = new Date();
+            return now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true });
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        /* Close modals on overlay click */
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) overlay.classList.remove('active');
+            });
+        });
+
+        /* Show header badge on desktop */
+        if (window.innerWidth >= 768) {
+            document.getElementById('desktopBadge').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
