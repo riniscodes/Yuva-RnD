@@ -59,13 +59,15 @@ YUVA R&D provides an end-to-end innovation pipeline that includes:
 - **Path B - Startup Creation:** Build your own company from scratch
 - Full roadmap including partner identification, license structuring, business foundation, funding, team building, and go-to-market strategy
 
-## Technology Stack
+## Tech Stack
 
 - **Frontend:** HTML5, CSS3, JavaScript (ES6)
-- **Animations:** CSS keyframes, Intersection Observer API
-- **UI Components:** Custom gradient backgrounds, glassmorphism effects, animated particles
-- **Responsive Design:** Mobile-first approach with media queries
-
+- **Animations:** CSS keyframes and Intersection Observer API
+- **UI Design:** Custom gradient backgrounds, glassmorphism effects, animated particle systems
+- **Responsive Design:** Mobile-first approach with media queries at 768px and 480px breakpoints
+- **Architecture:** Single-page application with no external framework dependencies
+- **AI Integration:** AI-assisted code generation, content structuring, and chatbot Q&A database
+  
 ## Key Features
 
 ### Interactive Pipeline Flow
